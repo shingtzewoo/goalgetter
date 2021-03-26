@@ -1,0 +1,33 @@
+Flask==1.1.2
+
+werkzeug==1.0.2
+
+pytest==6.2.2
+pytest-cov==2.11.1
+flake8==3.9.0
+mock==4.0.3
+
+# 
+Click==7.1.2
+
+# database management 
+psycopg2==2.8.6
+Flask-SQLAlchemy==2.5.1
+alembic==1.5.8
+SQLAlchemy==1.4.3
+
+redis==3.5.3
+celery==5.0.5
+
+# forms
+Flask-WTF==0.14.3
+WTForms-Components==0.10.5
+
+# utilities
+fake-factory==0.7.4
+
+# extenteions
+flask-debugtoolbar==0.11.0
+Flask-Mail==0.9.1
+Flask-Login==0.5.0
+Flask-Limiter==1.4
