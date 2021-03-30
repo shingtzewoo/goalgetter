@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 
 def create_app():
 
@@ -12,5 +12,13 @@ def create_app():
     
     # register blue prints here
 
-    return app
+    @app.route('/')
+    def index():
+        """
+        Render a Hello World response.
 
+        :return: Flask response
+        """
+        return render_template('app.html')
+
+    return app
