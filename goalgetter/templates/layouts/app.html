@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'layouts/base.html' %}
 
 {% block header %}
 <nav class="navbar navbar-expand-md navbar-light bg-light">
@@ -12,16 +12,16 @@
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" href="{{ url_for('page.home') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Values</a>
+                    <a class="nav-link" href="{{ url_for('page.values') }}">Values</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Goals</a>
+                    <a class="nav-link" href="{{ url_for('page.goals') }}">Goals</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Journal</a>
+                    <a class="nav-link" href="{{ url_for('page.journal') }}">Journal</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

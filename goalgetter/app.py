@@ -1,5 +1,7 @@
 from flask import Flask, render_template
 
+from goalgetter.blueprints.page import page
+
 def create_app():
 
     # creates flask instance that loads configuation files relative to the instance folder
@@ -11,14 +13,6 @@ def create_app():
     app.config.from_pyfile('settings.py', silent=True)
     
     # register blue prints here
-
-    @app.route('/')
-    def index():
-        """
-        Render a Hello World response.
-
-        :return: Flask response
-        """
-        return render_template('app.html')
+    app.register_blueprint(page)
 
     return app
