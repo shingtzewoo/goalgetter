@@ -1,0 +1,1 @@
+from goalgetter.blueprints.page.user import user

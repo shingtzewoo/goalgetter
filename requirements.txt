@@ -6,7 +6,7 @@ werkzeug==1.0.1
 gunicorn==20.1.0
 
 # testing
-pytest==6.2.2
+pytest-flask=1.2.0
 pytest-cov==2.11.1
 flake8==3.9.0
 mock==4.0.3
