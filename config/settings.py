@@ -1,6 +1,8 @@
+from datetime import timedelta
 DEBUG = True
 
 SERVER_NAME = 'localhost:8000'
+SECRET_KEY = "b'}\x15\xfa:4A_\x85\x02\xcc\xbfN1\xf9\xe3/\xfd\xb25\xdeK\x97\x84\xc2'"
 
 # SQLAlchemy.
 db_uri = 'postgresql://goalgetter:devpassword@postgres:5432/goalgetter'

@@ -1,1 +1,1 @@
-from goalgetter.blueprints.page.user import user
+from goalgetter.blueprints.user.views import user
