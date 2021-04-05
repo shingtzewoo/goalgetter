@@ -28,9 +28,18 @@ def create_app():
     # register extensions
     extensions(app)
 
+    with app.app_context():
+        db.create_all()
+        if User.identification('dev@local.host') is None:
+            params = {
+                'email': app.config['SEED_ADMIN_EMAIL'],
+                'password': app.config['SEED_ADMIN_PASSWORD']
+            }
+            db.session.add(User(**params))
+            db.session.commit()
+
     # authenticate the user
     authentication(app, User)
-
 
     return app
 
@@ -51,5 +60,5 @@ def authentication(app, user_model):
 
     @login_manager.user_loader
     def load_user(user_id):
-        return User.get(user_id)
+        return User.get(user_id)    
     
