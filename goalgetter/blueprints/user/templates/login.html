@@ -5,7 +5,7 @@
 
 {% block body %}
 <h2 class="display-5">Please Sign In</h2>
-    <form action="" method="post">
+    <form method="POST" action="{{ url_for('user.login')}}">
         <p>
             {{ form.email.label }}<br>
             {{ form.email(size=32) }}
@@ -14,9 +14,9 @@
             {{ form.password.label }}<br>
             {{ form.password(size=32) }}
         </p>
-        <p>{{ user2.email }}</p>
-        <button type="submit" class="btn btn-primary">
-            Sign in
-        </button>
+        <p>
+            {{ form.csrf_token }}
+        </p>
+        <input type="submit" class="btn btn-primary" value="Login">
     </form>
 {% endblock %}

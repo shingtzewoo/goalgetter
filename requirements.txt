@@ -5,6 +5,9 @@ werkzeug==1.0.1
 # Application server for both development and production.
 gunicorn==20.1.0
 
+# CLI
+Click==7.1.2
+
 # testing
 pytest-flask==1.2.0
 pytest-cov==2.11.1
@@ -31,3 +34,4 @@ flask-debugtoolbar==0.11.0
 Flask-Mail==0.9.1
 Flask-Login==0.5.0
 Flask-Limiter==1.4
+    

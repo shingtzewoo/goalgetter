@@ -10,12 +10,12 @@ class User(UserMixin, db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(255), unique=True, index=True, nullable=False, server_default='')
-    password = db.Column(db.String(128), nullable=False, server_default='')
+    password = db.Column(db.String, nullable=False, server_default='')
     name = db.Column(db.String(128))
 
     def __init__(self, **kwargs):
         super(User, self).__init__(**kwargs)
-        self.password = generate_password_hash('password')
+        self.password = generate_password_hash(kwargs.get('password', ''))
     
     @classmethod
     def identification(cls, identity):
@@ -40,7 +40,7 @@ class User(UserMixin, db.Model):
         db.session.commit()
         return True
 
-    def passwordcheck(cls, password):
+    def passwordcheck(self, password):
         '''
         Checks password hash against unhashed password to see if they match 
         '''
