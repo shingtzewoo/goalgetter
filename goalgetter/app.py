@@ -48,6 +48,10 @@ def authentication(app, user_model):
     # a route that requires a user to be logged in
     login_manager.login_view = 'user.login'
 
+    # Flask-Login 
+    # You will need to provide a user_loader callback. 
+    # This callback is used to reload the user object from the user ID stored in the session. 
+    # It should take the unicode ID of a user, and return the corresponding user object.
     @login_manager.user_loader
     def load_user(user_id):
         return user_model.query.get(user_id)   

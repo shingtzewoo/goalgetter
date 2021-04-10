@@ -1,9 +1,9 @@
 from flask import Blueprint, render_template, url_for, flash, current_app, request, redirect
+from werkzeug.security import generate_password_hash
 from flask_login import login_required, login_user, current_user, logout_user
 from goalgetter.blueprints.user.decorators import anonymous_required
-from goalgetter.blueprints.user.forms import LoginForm, NameForm
+from goalgetter.blueprints.user.forms import LoginForm, SignupForm
 from goalgetter.blueprints.user.models import User
-from goalgetter.blueprints.page.views import page
 from goalgetter.extensions import db
 
 user = Blueprint('user', __name__, template_folder='templates')
@@ -22,7 +22,8 @@ def login():
         
         if user and user.passwordcheck(password):
 
-            # flask login function 
+            # https://flask-login.readthedocs.io/en/latest/#flask_login.login_user
+            # if user is logged in successfully, they will be redirected to the home page via page's home route
             login_user(user)
             return redirect(url_for("page.home"))
         else:
@@ -39,9 +40,24 @@ def logout():
 @user.route('/signup', methods=['GET', 'POST'])
 @anonymous_required
 def signup():
-    # redirect to landing page
-    # have to work on landing page
-    return render_template('signup.html')
+    form = SignupForm()
+
+    if form.validate_on_submit():
+        new_user = User()
+
+        # https://wtforms.readthedocs.io/en/2.3.x/forms/
+        # Populates the attributes of the passed obj with data from the form’s fields.
+        form.populate_obj(new_user)
+        new_user.password = generate_password_hash(request.form.get('password'))
+        new_user.save()
+
+        if login_user(new_user):
+            flash('Welcome to Goalgetter, thank you for signing up!', 'success')
+            return redirect(url_for('page.home'))
+        else:
+            flash('This email already exists.', 'error')
+
+    return render_template('signup.html', form=form)
 
 @user.route('/account')
 @login_required
