@@ -27,7 +27,7 @@ def login():
             login_user(user)
             return redirect(url_for("page.home"))
         else:
-            flash("Email or passwod is incorrect.", "error")
+            flash("Email or password is incorrect.", "danger")
     
     return render_template('login.html', form=form)
 
@@ -44,18 +44,22 @@ def signup():
 
     if form.validate_on_submit():
         new_user = User()
+        
+        # check if the user's email already exists in the database, if it doesn't, then we proceed forward with signing the user up
+        if not User.identification(request.form.get('email')):
+            
+            # https://wtforms.readthedocs.io/en/2.3.x/forms/
+            # Populates the attributes of the passed obj with data from the form’s fields.
+            form.populate_obj(new_user)
 
-        # https://wtforms.readthedocs.io/en/2.3.x/forms/
-        # Populates the attributes of the passed obj with data from the form’s fields.
-        form.populate_obj(new_user)
-        new_user.password = generate_password_hash(request.form.get('password'))
-        new_user.save()
+            new_user.password = generate_password_hash(request.form.get('password'))
+            new_user.save()
 
-        if login_user(new_user):
-            flash('Welcome to Goalgetter, thank you for signing up!', 'success')
-            return redirect(url_for('page.home'))
+            if login_user(new_user):
+                flash('Welcome to Goalgetter, thank you for signing up!', 'success')
+                return redirect(url_for('page.home'))
         else:
-            flash('This email already exists.', 'error')
+            flash('This email already exists.', 'danger')
 
     return render_template('signup.html', form=form)
 
