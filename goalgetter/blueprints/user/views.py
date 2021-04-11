@@ -35,7 +35,7 @@ def login():
 @login_required
 def logout():
     logout_user()
-    return redirect("/")
+    return redirect(url_for("page.landing"))
 
 @user.route('/signup', methods=['GET', 'POST'])
 @anonymous_required

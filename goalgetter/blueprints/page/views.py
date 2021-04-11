@@ -9,11 +9,6 @@ page = Blueprint('page', __name__, template_folder='templates')
 def home():
     return render_template('home.html')
 
-@page.route('/values')
-@login_required
-def values():
-    return render_template('values.html')
-
 @page.route('/goals')
 @login_required
 def goals():
