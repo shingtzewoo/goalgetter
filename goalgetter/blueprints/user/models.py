@@ -1,6 +1,7 @@
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash 
 from goalgetter.extensions import db
+from goalgetter.blueprints.goals.models.goals import Goal
 
 class User(UserMixin, db.Model):
     '''
@@ -12,6 +13,9 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(255), unique=True, index=True, nullable=False, server_default='')
     password = db.Column(db.String, nullable=False, server_default='')
     name = db.Column(db.String(128))
+
+    # 1:M relationship with the goals table
+    goal = db.relationship(Goal, uselist=True, backref='users', passive_deletes=True)
 
     def __init__(self, **kwargs):
         super(User, self).__init__(**kwargs)

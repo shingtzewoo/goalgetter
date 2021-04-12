@@ -2,7 +2,10 @@ import os
 
 import click
 
+# assigning the parent directory, commands, to a variable
 cmd_folder = os.path.join(os.path.dirname(__file__), 'commands')
+
+# creating the cmd prefix for the file
 cmd_prefix = 'cmd_'
 
 
@@ -10,14 +13,14 @@ class CLI(click.MultiCommand):
     def list_commands(self, ctx):
         """
         Obtain a list of all available commands.
-
-        :param ctx: Click context
-        :return: List of sorted commands
         """
         commands = []
 
         for filename in os.listdir(cmd_folder):
             if filename.endswith('.py') and filename.startswith(cmd_prefix):
+                
+                # here we loop through each of the python files that have a cmd prefix and then append append 
+                # the name of the file excluding cmd_ in the name to the list named commands and that is then sorted and returned
                 commands.append(filename[4:-3])
 
         commands.sort()
@@ -27,10 +30,6 @@ class CLI(click.MultiCommand):
     def get_command(self, ctx, name):
         """
         Get a specific command by looking up the module.
-
-        :param ctx: Click context
-        :param name: Command name
-        :return: Module's cli function
         """
         ns = {}
 
