@@ -56,8 +56,7 @@ def signup():
             new_user.save()
 
             if login_user(new_user):
-                flash('Welcome to Goalgetter, thank you for signing up!', 'success')
-                return redirect(url_for('page.home'))
+                return redirect(url_for('goals.values'))
         else:
             flash('This email already exists.', 'danger')
 
@@ -66,4 +65,5 @@ def signup():
 @user.route('/account')
 @login_required
 def account():
+    # to do
     return render_template('signup.html')

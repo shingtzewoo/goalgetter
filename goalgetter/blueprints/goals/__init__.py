@@ -1,0 +1,1 @@
+from goalgetter.blueprints.goals.views import goals

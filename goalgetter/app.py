@@ -3,6 +3,7 @@ from flask import Flask, render_template, flash
 # blueprints
 from goalgetter.blueprints.page import page
 from goalgetter.blueprints.user import user
+from goalgetter.blueprints.goals import goals
 
 # extensions
 from goalgetter.extensions import db
@@ -24,6 +25,7 @@ def create_app():
     # register blue prints here
     app.register_blueprint(page)
     app.register_blueprint(user)
+    app.register_blueprint(goals)
 
     # register extensions
     extensions(app)

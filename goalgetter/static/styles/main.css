@@ -1,0 +1,7 @@
+section {
+    height: 500px;
+}
+  
+input[type=checkbox] {
+    display: none;
+}

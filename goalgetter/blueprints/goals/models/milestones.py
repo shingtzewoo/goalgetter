@@ -14,4 +14,4 @@ class Milestone(db.Model):
     goal = db.Column(db.Integer, db.ForeignKey('goals.id', onupdate='CASCADE', ondelete='CASCADE'), index=True, nullable=False)
 
     def __init__(self, **kwargs):
-        super(Goal, self).__init__(**kwargs)
+        super(Milestone, self).__init__(**kwargs)
