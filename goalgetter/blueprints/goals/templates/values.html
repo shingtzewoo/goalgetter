@@ -22,7 +22,7 @@
 </section>
 <section class="row">
     <div class="col d-flex flex-column justify-content-center">
-        <h1 data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" class="text-left">Think hard and deeply on what your top 3 values are.</h1>
+        <h1 data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600" class="text-left">Choose the top three values that represent you.</h1>
     </div>
     <div class="col-8 d-flex flex-row justify-content-center">
         <img src="{{ url_for('static', filename='images/cozy-time.jpg') }}" class="img-fluid"  
@@ -34,32 +34,44 @@
         <form method="POST" action="{{ url_for('goals.values')}}">
             <div class="row" style="height: 150px">
                 <div class="col d-flex flex-column mb-2 mx-1" style="height:150px;">
-                    <div class="d-flex flex-column animate__animated flash" data-aos="fade-in" data-aos-once="true" style="z-index: 0; position: absolute; background-color:white;">
+                    <div class="d-flex flex-column animate__animated flash" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600" style="z-index: 0; position: absolute; background-color:white;">
                         <label class="text-center lead value" for="authentic">Authenticity</label>
-                        <input type="checkbox" name="authentic" value="authentic">
+                        <input type="checkbox" name="authentic" value="authentic" id="authentic">
                         <img src="{{ url_for('static', filename='images/authentic.png') }}" class="img-fluid mx-auto auth" alt="Authentic stamp icon made https://www.flaticon.com/authors/flat-icons" style="max-width: 50%; max-height: 50%">
                     </div>
                     <div class="d-flex flex-column animate_animated" style="z-index: -1; position: absolute; overflow: auto;">
-                        <p class="text-center lead">True to one's own personality, spirit, or character.</p>
+                        <p class="text-center lead">You stay true to yourself no matter what.</p>
                     </div>
                 </div>
                 <div class="col d-flex flex-column mb-2 mx-1 animate__animated">
-                    <div class="d-flex flex-column animate__animated flash" data-aos="fade-in" data-aos-once="true" style="z-index: 0; position: absolute; background-color:white;">
+                    <div class="d-flex flex-column animate__animated flash" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600" style="z-index: 0; position: absolute; background-color:white;">
                         <label class="text-center lead value" for="adventure">Adventure</label>
                         <input type="checkbox" name="authentic" value="adventure" id="adventure">
                         <img src="{{ url_for('static', filename='images/authentic.png') }}" class="img-fluid mx-auto auth" alt="Authentic stamp icon made https://www.flaticon.com/authors/flat-icons" style="max-width: 50%; max-height: 50%">
                     </div>
                     <div class="d-flex flex-column animate_animated" style="z-index: -1; position: absolute; overflow: auto;">
-                        <p class="text-center lead">True to one's own personality, spirit, or character.</p>
+                        <p class="text-center lead">You enjoy getting out of your comfort zone.</p>
                     </div>
                 </div>
-                <div class="col d-flex flex-column mb-2 mx-1 animate__animated flash" data-aos="fade-in" data-aos-once="true">
-                    <input type='hidden'>
-                    <p class="text-center lead">Balance</p>
+                <div class="col d-flex flex-column mb-2 mx-1 animate__animated" data-aos="fade-in" data-aos-once="true">
+                    <div class="d-flex flex-column animate__animated flash" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600" style="z-index: 0; position: absolute; background-color:white;">
+                        <label class="text-center lead value" for="balance">Balance</label>
+                        <input type="checkbox" name="balance" value="balance" id="balance">
+                        <img src="{{ url_for('static', filename='images/authentic.png') }}" class="img-fluid mx-auto auth" alt="Authentic stamp icon made https://www.flaticon.com/authors/flat-icons" style="max-width: 50%; max-height: 50%">
+                    </div>
+                    <div class="d-flex flex-column animate_animated" style="z-index: -1; position: absolute; overflow: auto;">
+                        <p class="text-center lead">You believe that balance is important in all things.</p>
+                    </div>
                 </div>
-                <div class="col d-flex flex-column mb-2 mx-1 animate__animated flash" data-aos="fade-in" data-aos-once="true">
-                    <input type='hidden'>
-                    <p class="text-center lead">Honesty</p>
+                <div class="col d-flex flex-column mb-2 mx-1" style="height:150px;">
+                    <div class="d-flex flex-column animate__animated flash" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600" style="z-index: 0; position: absolute; background-color:white;">
+                        <label class="text-center lead value" for="honesty">Honesty</label>
+                        <input type="checkbox" name="honesty" value="honesty" id="honesty">
+                        <img src="{{ url_for('static', filename='images/authentic.png') }}" class="img-fluid mx-auto auth" alt="Authentic stamp icon made https://www.flaticon.com/authors/flat-icons" style="max-width: 50%; max-height: 50%">
+                    </div>
+                    <div class="d-flex flex-column animate_animated" style="z-index: -1; position: absolute; overflow: auto;">
+                        <p class="text-center lead">No matter how much the truth hurts, it is better than lying.</p>
+                    </div>
                 </div>
                 <div class="col d-flex flex-column mb-2 mx-1 animate__animated flash" data-aos="fade-in" data-aos-once="true">
                     <input type='hidden'>
@@ -110,6 +122,7 @@
                     <p class="text-center lead">Responsibility</p>
                 </div>
             </div>
+            <button type="submit" class="btn btn-primary">Enter your choice</button>
         </form>
     </div>
 </section>
