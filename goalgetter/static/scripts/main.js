@@ -41,7 +41,7 @@ function chosen(checkboxes, cls) {
             if (count < 3 && items1[i].checked) {
 
                 if (items1[i].checked) {
-                    items2[i].style.border = "1px solid black";
+                    items2[i].style.border = "1px solid light-grey";
                     count+=1;
                     alert("Your count is " + count)
                 }
