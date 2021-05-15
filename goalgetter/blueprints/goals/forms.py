@@ -8,8 +8,3 @@ class GoalsForm(FlaskForm):
     goal1 = StringField('Name', [DataRequired(), Length(3, 254)])
     goal2 = StringField('Name', [DataRequired(), Length(3, 254)])
     goal3 = StringField('Name', [DataRequired(), Length(3, 254)])
-
-class ValuesForm(FlaskForm):
-    value1 = StringField('Name', [DataRequired(), Length(3, 254)])
-    value2 = StringField('Name', [DataRequired(), Length(3, 254)])
-    value3 = StringField('Name', [DataRequired(), Length(3, 254)])

@@ -32,28 +32,29 @@ function chosen(checkboxes, cls) {
     let items1 = document.querySelectorAll(checkboxes);
     let items2 = getItemByClass(cls);
 
-    count = 0
+    count = 0;
 
     for(let i = 0; i < items1.length; i++) {
 
         items1[i].addEventListener("change", function() {
 
-            if (count < 3 && items1[i].checked) {
-
                 if (items1[i].checked) {
-                    items2[i].style.border = "1px solid light-grey";
-                    count+=1;
-                    alert("Your count is " + count)
-                }
-                else if (items1[i].checked == false && count > 0) {
+                    items2[i].style.border = "1px solid silver";
+                    items2[i].style.borderRadius = "25px"
+                    if (count < 3) {
+                        count+=1;
+                    }
+                    else {
+                        items1[i].checked = false;
+                        items2[i].style.border = null;
+                        alert("Please choose only 3 values");
+                    }
+                } else if (items1[i].checked == false && count > 0) {
                     items2[i].style.border = null;
-                    count-=1;
-                    alert("Your count is " + count)
+                    if (count > 0) {
+                        count-=1;
+                    }
                 }
-            } else {
-                items1[i].checked = false;
-                alert("You can max choose 3 values only. ")
-            }
         }, false);
     }
 }

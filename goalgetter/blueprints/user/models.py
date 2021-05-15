@@ -1,7 +1,7 @@
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash 
 from goalgetter.extensions import db
-from goalgetter.blueprints.goals.models.goals import Goal
+from goalgetter.blueprints.goals.models.values import Value
 
 class User(UserMixin, db.Model):
     '''
@@ -15,10 +15,8 @@ class User(UserMixin, db.Model):
     name = db.Column(db.String(128))
     questionnaire = db.Column('is_complete', db.Boolean(), nullable=False,
                        server_default='0')
-    values = db.Column(db.ARRAY(db.String), server_default='{}')
-    
-    # 1:M relationship with the goals table
-    goal = db.relationship(Goal, uselist=True, backref='users', passive_deletes=True)
+    # 1:M relationship with the values table
+    values = db.relationship(Value, uselist=True, backref='values', passive_deletes=True)
 
     def __init__(self, **kwargs):
         super(User, self).__init__(**kwargs)
@@ -33,7 +31,7 @@ class User(UserMixin, db.Model):
     
     def save(self):
         '''
-        Saves an instance of the user model
+        Saves an instance of the instance model
         '''
         db.session.add(self)
         db.session.commit()
@@ -52,3 +50,9 @@ class User(UserMixin, db.Model):
         Checks password hash against unhashed password to see if they match 
         '''
         return check_password_hash(self.password, password)
+    
+    def is_complete(self):
+        '''
+        Return whether the user has completed the initial sign up questionnaire
+        '''
+        return self.questionnaire

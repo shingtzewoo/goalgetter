@@ -1,4 +1,4 @@
-from flask import Flask, render_template, flash
+from flask import Flask, render_template
 
 # blueprints
 from goalgetter.blueprints.page import page

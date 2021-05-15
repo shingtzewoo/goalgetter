@@ -4,7 +4,6 @@ from flask_login import login_required, login_user, current_user, logout_user
 from goalgetter.blueprints.user.decorators import anonymous_required
 from goalgetter.blueprints.user.forms import LoginForm, SignupForm
 from goalgetter.blueprints.user.models import User
-from goalgetter.extensions import db
 
 user = Blueprint('user', __name__, template_folder='templates')
 
