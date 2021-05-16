@@ -13,7 +13,7 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(255), unique=True, index=True, nullable=False, server_default='')
     password = db.Column(db.String, nullable=False, server_default='')
     name = db.Column(db.String(128))
-    questionnaire = db.Column('is_complete', db.Boolean(), nullable=False,
+    questionnaire = db.Column('is_complete', db.Integer, nullable=False,
                        server_default='0')
     # 1:M relationship with the values table
     values = db.relationship(Value, uselist=True, backref='values', passive_deletes=True)
