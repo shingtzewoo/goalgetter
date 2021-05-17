@@ -31,12 +31,12 @@ def values():
     if current_user.is_complete() == 1:
         flash("You've already chosen your values, please complete your goals", "danger")
         return redirect(url_for("goals.goal"))
-    '''elif current_user.is_complete() == 2:
-            flash("You've already chosen your values and goals, please complete your milestones and tasks", "danger")
-        # need to add more validation for other completion stages
-    ''' 
     else:
-        return render_template('values.html')
+        return render_template("values.html")
+
+    """elif current_user.is_complete() == 2:
+            flash("You've already chosen your values and goals, please complete your milestones and tasks", "danger")
+        # need to add more validation for other completion stages"""
 
 @goals.route('/questions/goals', methods=['GET','POST'])
 @login_required
@@ -44,7 +44,7 @@ def goal():
 
     # fix this validation check
     if current_user.is_complete() <= 1:
-        return str(current_user.is_complete())
+        return render_template("develop_goals.html", value1=current_user.values[0].value, value2=current_user.values[1].value, value3=current_user.values[2].value)
     else:
         flash("You've already completed your goals.", "danger")
         return redirect(url_for("page.home"))
