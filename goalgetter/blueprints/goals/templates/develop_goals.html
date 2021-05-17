@@ -7,18 +7,35 @@
 {% block body %}
 <section class="row">
     <div class="col d-flex flex-column justify-content-center" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600">
-        <h1 class="text-center">Value based goal setting.</h1>
+        <h1 class="text-center">Value based goal setting</h1>
         <p class="text-center lead">
-            Using your core values you chose in the previous page, we're going to develop goals from that. 
+            Using your core values you chose in the previous page, we're going to develop goals from that
             <br>
-            This is to align you with your core self of who you are or who you want to become. 
+            This is to align you with your core self of who you are or who you want to become 
             <br> Based on the methodology of 
             <a href="https://www.dummies.com/religion/spirituality/setting-and-achieving-value-based-smart-goals/#:~:text=Committed%20action%20is%20a%20core,person%20you%20want%20to%20be.">commited action</a>.
         </p>
     </div>
 </section>
+<section class="row">
+    <div class="col d-flex flex-column justify-content-center" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600">
+        <h1 class="text-center">Make sure your goals are SMART</h1>
+        <p class="text-center lead">
+            <b>S</b>pecific: be clear about what needs to be done
+            <br>
+            <b>M</b>easurable: defined criteria to measure success
+            <br>
+            <b>A</b>chievable: it has to be an outcome you can directly influence
+            <br>
+            <b>R</b>ealistic: make sure you have the time, resources, and ability to succeed
+            <br>
+            <b>T</b>ime: specific time periods to hold yourself accountable
+            <br>
+        </p>
+    </div>
+</section>
 <section class="row d-flex">
-    <div class="container">
+    <div class="col">
         <form method="POST" action="{{ url_for('goals.values')}}">
             <div class="row my-3 animate__animated" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600" style="height: 150px">
                 <div class="col-4">
