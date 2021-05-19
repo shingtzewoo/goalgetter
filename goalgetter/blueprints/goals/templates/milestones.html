@@ -1,4 +1,3 @@
-{% import 'macros/render_value.html' as render with context %}
 {% extends 'layouts/app.html' %}
 
 {% block title %}Determine Your Goals{% endblock %}
@@ -7,19 +6,17 @@
 {% block body %}
 <section class="row">
     <div class="col d-flex flex-column justify-content-center" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600">
-        <h1 class="text-center">Value based goal setting</h1>
+        <h1 class="text-center">Milestones</h1>
         <p class="text-center lead">
-            We're going to develop annual goals from the core values you chose in the previous page
+            Goals are can sometimes be big and overwhelming
             <br>
-            This is to align you with your core self of who you are or who you want to become 
-            <br> Based on the methodology of 
-            <a href="https://www.dummies.com/religion/spirituality/setting-and-achieving-value-based-smart-goals/#:~:text=Committed%20action%20is%20a%20core,person%20you%20want%20to%20be.">commited action</a>.
+            We're going to break them down into manageable and achievbable chunks called milestones 
         </p>
     </div>
 </section>
 <section class="row">
     <div class="col d-flex flex-column justify-content-center" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600">
-        <h1 class="text-center">Make sure your goals are SMART</h1>
+        <h1 class="text-center">Milestones also have to be</h1>
         <p class="text-center lead">
             <b>S</b>pecific: be clear about what needs to be done
             <br>
@@ -36,32 +33,29 @@
 </section>
 <section class="row d-flex">
     <div class="col">
-        <form method="POST" action="{{ url_for('goals.goal')}}">
+        <form method="POST" action="{{ url_for('goals.milestones')}}">
             <div class="row my-3 animate__animated" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600" style="height: 150px">
-                <div class="col-4">
-                {{ render.render_value(value1) }}
-                <h1>{{ value1 }}</h1>
+                <div class="col-4 d-flex align-items-center justify-content-center">
+                    <p class="lead">{{ goal1.name }}</p>
                 </div>
                 <div class="col d-flex align-items-center form-group">
-                    <textarea name="{{value1}}" class="form-control" rows="2" required></textarea>
+                    <textarea name="{{goal1}}" class="form-control" rows="2" required></textarea>
                 </div>
             </div>
             <div class="row my-3 animate__animated" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600" style="height: 150px">
-                <div class="col-4">
-                    {{ render.render_value(value2) }}
-                    <h1>{{ value2 }}</h1>
+                <div class="col-4 d-flex align-items-center justify-content-center">
+                    <p class="lead">{{ goal2.name }}</p>
                 </div>
                 <div class="col d-flex align-items-center form-group">
-                    <textarea name="{{value2}}" class="form-control" rows="2" required></textarea>
+                    <textarea name="{{goal2}}" class="form-control" rows="2" required></textarea>
                 </div>
             </div>
             <div class="row my-3 animate__animated" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600" style="height: 150px">
-                <div class="col-4">
-                    {{ render.render_value(value3) }}
-                    <h1>{{ value3 }}</h1>
+                <div class="col-4 d-flex align-items-center justify-content-center">
+                    <p class="lead">{{ goal3.name }}</p>
                 </div>
                 <div class="col d-flex align-items-center form-group">
-                    <textarea name="{{value3}}" class="form-control" rows="2" required></textarea>
+                    <textarea name="{{goal3}}" class="form-control" rows="2" required></textarea>
                 </div>
             </div>
             <div class="row mt-5" style="height: 150px">

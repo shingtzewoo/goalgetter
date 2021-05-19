@@ -8,6 +8,9 @@ gunicorn==20.1.0
 # CLI
 Click==7.1.2
 
+# date time utility
+python-dateutil==2.8.1
+
 # testing
 pytest-flask==1.2.0
 pytest-cov==2.11.1

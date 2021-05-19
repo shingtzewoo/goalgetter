@@ -17,6 +17,9 @@ class Value(db.Model):
         super(Value, self).__init__(**kwargs)
     
     def connect(self, user=None):
+        '''
+        Connects the created value to the current user
+        '''
         self.user_id = user.id
         db.session.add(self)
         db.session.commit()

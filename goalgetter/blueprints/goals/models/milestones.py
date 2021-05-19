@@ -11,7 +11,7 @@ class Milestone(db.Model):
     tasks = db.Column(db.ARRAY(db.String), server_default='{}')
 
     # M:1 relationship with the goals table, https://docs.sqlalchemy.org/en/14/core/constraints.html#sqlalchemy.schema.ForeignKey and https://docs.sqlalchemy.org/en/14/orm/cascades.html#passive-deletes
-    goal = db.Column(db.Integer, db.ForeignKey('goals.id', onupdate='CASCADE', ondelete='CASCADE'), index=True, nullable=False)
+    goal_id = db.Column(db.Integer, db.ForeignKey('goals.id', onupdate='CASCADE', ondelete='CASCADE'), index=True, nullable=False)
 
     def __init__(self, **kwargs):
         super(Milestone, self).__init__(**kwargs)
