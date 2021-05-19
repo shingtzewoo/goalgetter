@@ -32,33 +32,84 @@
     </div>
 </section>
 <section class="row d-flex">
-    <div class="col">
+    <div class="container">
         <form method="POST" action="{{ url_for('goals.milestones')}}">
-            <div class="row my-3 animate__animated" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600" style="height: 150px">
+            <div class="row my-3 animate__animated" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600" style="height: 130px">
                 <div class="col-4 d-flex align-items-center justify-content-center">
                     <p class="lead">{{ goal1.name }}</p>
                 </div>
-                <div class="col d-flex align-items-center form-group">
-                    <textarea name="{{goal1}}" class="form-control" rows="2" required></textarea>
+                <div class="col">
+                    <div class="row form-group" style="height: 30px">
+                        <label for="milestone" class="col-3 col-form-label">First milestone:</label>
+                        <div class="col" id="milestone1">
+                            <input type="textarea" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="row form-group" style="height: 30px">
+                        <label for="milestone2" class="col-3 col-form-label">Second milestone:</label>
+                        <div class="col" id="milestone2">
+                            <input type="textarea" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="row form-group" style="height: 30px">
+                        <label for="milestone3" class="col-3 col-form-label">Third milestone:</label>
+                        <div class="col" id="milestone3">
+                            <input type="textarea" class="form-control" required>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="row my-3 animate__animated" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600" style="height: 150px">
+            <div class="row my-3 animate__animated" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600" style="height: 130px">
                 <div class="col-4 d-flex align-items-center justify-content-center">
                     <p class="lead">{{ goal2.name }}</p>
                 </div>
-                <div class="col d-flex align-items-center form-group">
-                    <textarea name="{{goal2}}" class="form-control" rows="2" required></textarea>
+                <div class="col">
+                    <div class="row form-group" style="height: 30px">
+                        <label for="milestone" class="col-3 col-form-label">First milestone:</label>
+                        <div class="col" id="milestone1">
+                            <input type="textarea" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="row form-group" style="height: 30px">
+                        <label for="milestone2" class="col-3 col-form-label">Second milestone:</label>
+                        <div class="col" id="milestone2">
+                            <input type="textarea" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="row form-group" style="height: 30px">
+                        <label for="milestone3" class="col-3 col-form-label">Third milestone:</label>
+                        <div class="col" id="milestone3">
+                            <input type="textarea" class="form-control" required>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="row my-3 animate__animated" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600" style="height: 150px">
+            <div class="row my-3 animate__animated" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600" style="height: 130px">
                 <div class="col-4 d-flex align-items-center justify-content-center">
                     <p class="lead">{{ goal3.name }}</p>
                 </div>
-                <div class="col d-flex align-items-center form-group">
-                    <textarea name="{{goal3}}" class="form-control" rows="2" required></textarea>
+                <div class="col">
+                    <div class="row form-group" style="height: 30px">
+                        <label for="milestone" class="col-3 col-form-label">First milestone:</label>
+                        <div class="col" id="milestone1">
+                            <input type="textarea" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="row form-group" style="height: 30px">
+                        <label for="milestone2" class="col-3 col-form-label">Second milestone:</label>
+                        <div class="col" id="milestone2">
+                            <input type="textarea" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="row form-group" style="height: 30px">
+                        <label for="milestone3" class="col-3 col-form-label">Third milestone:</label>
+                        <div class="col" id="milestone3">
+                            <input type="textarea" class="form-control" required>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="row mt-5" style="height: 150px">
+            <div class="row mt-5" style="height: 130px">
                 <button type="submit" style="height: 50px" class="btn btn-light mx-auto">Continue</button>
             </div>
         </form>
