@@ -2,8 +2,9 @@ from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash 
 from goalgetter.extensions import db
 from goalgetter.blueprints.goals.models.values import Value
+from lib.sql_alchemy import ResourceMixin
 
-class User(UserMixin, db.Model):
+class User(UserMixin, ResourceMixin, db.Model):
     '''
     UserMixin parent class allows the User class to inherit is_active, get_id, is_authenticated, and is_anonymous https://flask-login.readthedocs.io/en/latest/
     '''
@@ -28,22 +29,6 @@ class User(UserMixin, db.Model):
         Searches the users table for a username that matches the one supplied using SQLAlchemy's query class
         '''
         return User.query.filter_by(email = identity).first()
-    
-    def save(self):
-        '''
-        Saves an instance of the instance model
-        '''
-        db.session.add(self)
-        db.session.commit()
-        return self
-    
-    def delete(self):
-        '''
-        Deletes an instance of the user model
-        '''
-        db.session.delete(self)
-        db.session.commit()
-        return True
 
     def passwordcheck(self, password):
         '''

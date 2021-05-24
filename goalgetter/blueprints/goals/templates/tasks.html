@@ -1,0 +1,23 @@
+{% import 'macros/render_value.html' as render with context %}
+{% extends 'layouts/app.html' %}
+
+{% block title %}Tasks{% endblock %}
+{% block meta_description %}Find out more about your true self.{% endblock %}
+
+{% block body %}
+<form method="POST" action="{{ url_for('goals.tasks')}}">
+    <section class="row d-flex">
+        <div>
+            <h1>{{ value1.value }}</h1>
+            {{ render.render_value(value1.value) }}
+        </div>
+    </section>
+    <section class="row d-flex">
+    </section>
+    <section class="row d-flex">
+    </section>
+</form>
+<script src="{{ url_for('static', filename='scripts/main.js') }}" type="text/javascript"></script>
+<script>
+</script>
+{% endblock %}

@@ -1,6 +1,6 @@
 {% extends 'layouts/app.html' %}
 
-{% block title %}Determine Your Goals{% endblock %}
+{% block title %}Milestones{% endblock %}
 {% block meta_description %}Find out more about your true self.{% endblock %}
 
 {% block body %}
@@ -8,9 +8,11 @@
     <div class="col d-flex flex-column justify-content-center" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600">
         <h1 class="text-center">Milestones</h1>
         <p class="text-center lead">
-            Goals are can sometimes be big and overwhelming
+            Annual goals can sometimes be big and overwhelming
             <br>
-            We're going to break them down into manageable and achievbable chunks called milestones 
+            We're going to break them down into manageable and achievbable chunks called milestones
+            <br>
+            Each milestone is aimed to be achieved at the end of 4 months, so in a year you should have 3 milestones
         </p>
     </div>
 </section>
@@ -40,21 +42,21 @@
                 </div>
                 <div class="col">
                     <div class="row form-group" style="height: 30px">
-                        <label for="milestone" class="col-3 col-form-label">First milestone:</label>
+                        <label for="milestone1" class="col-3 col-form-label">First milestone:</label>
                         <div class="col" id="milestone1">
-                            <input type="textarea" class="form-control" required>
+                            <input type="textarea" class="form-control" name="{{ goal1.id }}" required>
                         </div>
                     </div>
                     <div class="row form-group" style="height: 30px">
                         <label for="milestone2" class="col-3 col-form-label">Second milestone:</label>
                         <div class="col" id="milestone2">
-                            <input type="textarea" class="form-control" required>
+                            <input type="textarea" class="form-control" name="{{ goal1.id }}" required>
                         </div>
                     </div>
                     <div class="row form-group" style="height: 30px">
                         <label for="milestone3" class="col-3 col-form-label">Third milestone:</label>
                         <div class="col" id="milestone3">
-                            <input type="textarea" class="form-control" required>
+                            <input type="textarea" class="form-control" name="{{ goal1.id }}" required>
                         </div>
                     </div>
                 </div>
@@ -65,21 +67,21 @@
                 </div>
                 <div class="col">
                     <div class="row form-group" style="height: 30px">
-                        <label for="milestone" class="col-3 col-form-label">First milestone:</label>
+                        <label for="milestone1" class="col-3 col-form-label">First milestone:</label>
                         <div class="col" id="milestone1">
-                            <input type="textarea" class="form-control" required>
+                            <input type="textarea" class="form-control" name="{{ goal2.id }}" required>
                         </div>
                     </div>
                     <div class="row form-group" style="height: 30px">
                         <label for="milestone2" class="col-3 col-form-label">Second milestone:</label>
                         <div class="col" id="milestone2">
-                            <input type="textarea" class="form-control" required>
+                            <input type="textarea" class="form-control" name="{{ goal2.id }}" required>
                         </div>
                     </div>
                     <div class="row form-group" style="height: 30px">
                         <label for="milestone3" class="col-3 col-form-label">Third milestone:</label>
                         <div class="col" id="milestone3">
-                            <input type="textarea" class="form-control" required>
+                            <input type="textarea" class="form-control" name="{{ goal2.id }}" required>
                         </div>
                     </div>
                 </div>
@@ -90,21 +92,21 @@
                 </div>
                 <div class="col">
                     <div class="row form-group" style="height: 30px">
-                        <label for="milestone" class="col-3 col-form-label">First milestone:</label>
+                        <label for="milestone1" class="col-3 col-form-label">First milestone:</label>
                         <div class="col" id="milestone1">
-                            <input type="textarea" class="form-control" required>
+                            <input type="textarea" class="form-control" name="{{ goal3.id }}" required>
                         </div>
                     </div>
                     <div class="row form-group" style="height: 30px">
                         <label for="milestone2" class="col-3 col-form-label">Second milestone:</label>
                         <div class="col" id="milestone2">
-                            <input type="textarea" class="form-control" required>
+                            <input type="textarea" class="form-control" name="{{ goal3.id }}" required>
                         </div>
                     </div>
                     <div class="row form-group" style="height: 30px">
                         <label for="milestone3" class="col-3 col-form-label">Third milestone:</label>
                         <div class="col" id="milestone3">
-                            <input type="textarea" class="form-control" required>
+                            <input type="textarea" class="form-control" name="{{ goal3.id }}" required>
                         </div>
                     </div>
                 </div>
