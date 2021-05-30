@@ -1,23 +1,63 @@
 {% import 'macros/render_value.html' as render with context %}
+{% import 'macros/render_task_section.html' as render_task_section with context %}
 {% extends 'layouts/app.html' %}
 
 {% block title %}Tasks{% endblock %}
 {% block meta_description %}Find out more about your true self.{% endblock %}
 
 {% block body %}
-<form method="POST" action="{{ url_for('goals.tasks')}}">
-    <section class="row d-flex">
-        <div>
-            <h1>{{ value1.value }}</h1>
-            {{ render.render_value(value1.value) }}
+<section class="row">
+    <div class="col d-flex flex-column justify-content-center" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600">
+        <h1 class="text-center">Developing Your Process: Tasks</h1>
+        <p class="text-center lead">
+            Tasks are going to be used achieve the milestones you set for yourself
+            <br>
+            Write the task that you will do to achieve the milestone and choose the day you plan to repeat
+    </div>
+</section>
+<form class="row" method="POST" action="{{ url_for('goals.tasks')}}">
+    <section class="container" style="height: 400px">
+        <div class="row d-flex">
+            <div class="col-4 d-flex justify-content-center">
+                {{ render.render_value(value1.value) }}
+            </div>
+            <div class="col">
+                <h1>{{ value1.value.capitalize() }}</h1>
+                <p class="lead"> {{ value1.goal.name}}</p>
+            </div>
         </div>
+    {{ render_task_section.render_task_section(value1) }}
     </section>
-    <section class="row d-flex">
+    <section class="container" style="height: 400px">
+        <div class="row d-flex">
+            <div class="col-4 d-flex justify-content-center">
+                {{ render.render_value(value2.value) }}
+            </div>
+            <div class="col">
+                <h1 style="display: block">{{ value2.value.capitalize() }}</h1>
+                <p class="lead" style="display: block"> {{ value2.goal.name }}</p>
+            </div>
+        </div>
+        {{ render_task_section.render_task_section(value2) }}
     </section>
-    <section class="row d-flex">
+    <section class="container" style="height: 400px">
+        <div class="row">
+            <div class="col-4 d-flex justify-content-center">
+                {{ render.render_value(value3.value) }}
+            </div>
+            <div class="col">
+                <h1 style="display: block">{{ value3.value.capitalize() }}</h1>
+                <p class="lead" style="display: block"> {{ value3.goal.name }}</p>
+            </div>
+        </div>
+        {{ render_task_section.render_task_section(value3) }}
+        <div class="row mt-5" style="height: 130px">
+            <button type="submit" style="height: 50px" class="btn btn-light mx-auto">Continue</button>
+        </div>
     </section>
 </form>
 <script src="{{ url_for('static', filename='scripts/main.js') }}" type="text/javascript"></script>
 <script>
+    set_disable('schedule','day')
 </script>
 {% endblock %}

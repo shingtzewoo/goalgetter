@@ -1,3 +1,5 @@
+{% import 'macros/render_checkboxes.html' as render_checkboxes with context %}
+{% import 'macros/render_value.html' as render_value with context %}
 {% extends 'layouts/app.html' %}
 
 {% block title %}What Are Your Values{% endblock %}
@@ -28,160 +30,25 @@
     <div class="col col-*">
         <form method="POST" action="{{ url_for('goals.values')}}">
             <div class="row" style="height: 150px">
-                <div class="col d-flex flex-column mb-2 mx-1" style="height:150px;">
-                    <div class="d-flex flex-column animate__animated flash" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600" style="z-index: 0; position: absolute; background-color:white;">
-                        <label class="text-center lead value" for="authentic">Authenticity</label>
-                        <input type="checkbox" name="value" value="authentic" id="authentic">
-                        <img src="{{ url_for('static', filename='images/authentic.png') }}" class="img-fluid mx-auto" alt="Authentic icon made https://www.flaticon.com/authors/flat-icons Freepik" style="max-width: 50%; max-height: 50%">
-                    </div>
-                    <div class="d-flex flex-column animate_animated" style="z-index: -1; position: absolute; overflow: auto;">
-                        <p class="text-center lead">Stay true to yourself no matter what.</p>
-                    </div>
-                </div>
-                <div class="col d-flex flex-column mb-2 mx-1 animate__animated">
-                    <div class="d-flex flex-column animate__animated flash" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600" style="z-index: 0; position: absolute; background-color:white;">
-                        <label class="text-center lead value" for="adventure">Adventure</label>
-                        <input type="checkbox" name="value" value="adventure" id="adventure">
-                        <img src="{{ url_for('static', filename='images/adventure.png') }}" class="img-fluid mx-auto" alt="Map icon made https://www.flaticon.com/authors/flat-icons Smashicons" style="max-width: 50%; max-height: 50%">
-                    </div>
-                    <div class="d-flex flex-column animate_animated" style="z-index: -1; position: absolute; overflow: auto;">
-                        <p class="text-center lead">Unknown and thrills are something you crave.</p>
-                    </div>
-                </div>
-                <div class="col d-flex flex-column mb-2 mx-1 animate__animated" data-aos="fade-in" data-aos-once="true">
-                    <div class="d-flex flex-column animate__animated flash" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600" style="z-index: 0; position: absolute; background-color:white;">
-                        <label class="text-center lead value" for="balance">Balance</label>
-                        <input type="checkbox" name="value" value="balance" id="balance">
-                        <img src="{{ url_for('static', filename='images/balance.png') }}" class="img-fluid mx-auto" alt="Scale icon made https://www.flaticon.com/authors/flat-icons monkik" style="max-width: 50%; max-height: 50%">
-                    </div>
-                    <div class="d-flex flex-column animate_animated" style="z-index: -1; position: absolute; overflow: auto;">
-                        <p class="text-center lead">You<br>believe that balance is important.</p>
-                    </div>
-                </div>
-                <div class="col d-flex flex-column mb-2 mx-1" style="height:150px;">
-                    <div class="d-flex flex-column animate__animated flash" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600" style="z-index: 0; position: absolute; background-color:white;">
-                        <label class="text-center lead value" for="honesty">Honesty</label>
-                        <input type="checkbox" name="value" value="honesty" id="honesty">
-                        <img src="{{ url_for('static', filename='images/honesty.svg') }}" class="img-fluid mx-auto" alt="Handshake icon made https://www.flaticon.com/authors/flat-icons Freepik" style="max-width: 50%; max-height: 50%">
-                    </div>
-                    <div class="d-flex flex-column animate_animated" style="z-index: -1; position: absolute; overflow: auto;">
-                        <p class="text-center lead">No matter how much the truth hurts, it is better than lying.</p>
-                    </div>
-                </div>
-                <div class="col d-flex flex-column mb-2 mx-1 animate__animated" data-aos="fade-in" data-aos-once="true">
-                    <div class="d-flex flex-column animate__animated flash" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600" style="z-index: 0; position: absolute; background-color:white;">
-                        <label class="text-center lead value" for="courage">Courage</label>
-                        <input type="checkbox" name="value" value="courage" id="courage">
-                        <img src="{{ url_for('static', filename='images/courage.svg') }}" class="img-fluid mx-auto" alt="Lion icon made https://www.flaticon.com/authors/flat-icons Icongeek26" style="max-width: 50%; max-height: 50%">
-                    </div>
-                    <div class="d-flex flex-column animate_animated" style="z-index: -1; position: absolute; overflow: auto;">
-                        <p class="text-center lead">Move forward even if you're scared.</p>
-                    </div>
-                </div>
+                {{ render_checkboxes.render_checkbox("authentic", "Stay true to yourself no matter what", render_value.render_value('authentic')) }}
+                {{ render_checkboxes.render_checkbox("adventure", "Unknown and thrills are something you crave", render_value.render_value('adventure')) }}
+                {{ render_checkboxes.render_checkbox("balance", "Belief that balance is important", render_value.render_value('balance')) }}
+                {{ render_checkboxes.render_checkbox("honesty", "No matter how much the truth hurts, it is better than lying.", render_value.render_value('honesty')) }}
+                {{ render_checkboxes.render_checkbox("courage", "Move forward even if you're scared", render_value.render_value('courage')) }}
             </div>
             <div class="row" style="height: 150px">
-                <div class="col d-flex flex-column mb-2 mx-1 animate__animated" data-aos="fade-in" data-aos-once="true">
-                    <div class="d-flex flex-column animate__animated flash" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600" style="z-index: 0; position: absolute; background-color:white;">
-                        <label class="text-center lead value" for="compassion">Compassion</label>
-                        <input type="checkbox" name="value" value="compassion" id="compassion">
-                        <img src="{{ url_for('static', filename='images/compassion.png') }}" class="img-fluid mx-auto" alt="Lion icon made https://www.flaticon.com/authors/flat-icons Eight Black Dots" style="max-width: 50%; max-height: 50%">
-                    </div>
-                    <div class="d-flex flex-column animate_animated" style="z-index: -1; position: absolute; overflow: auto;">
-                        <p class="text-center lead">Do unto others as you would have them do unto you.</p>
-                    </div>
-                </div>
-                <div class="col d-flex flex-column mb-2 mx-1 animate__animated" data-aos="fade-in" data-aos-once="true">
-                    <div class="d-flex flex-column animate__animated flash" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600" style="z-index: 0; position: absolute; background-color:white;">
-                        <label class="text-center lead value" for="positivity">Positivity</label>
-                        <input type="checkbox" name="value" value="positivity" id="positivity">
-                        <img src="{{ url_for('static', filename='images/positivity.png') }}" class="img-fluid mx-auto" alt="Lion icon made https://www.flaticon.com/authors/flat-icons Freepik" style="max-width: 50%; max-height: 50%">
-                    </div>
-                    <div class="d-flex flex-column animate_animated" style="z-index: -1; position: absolute; overflow: auto;">
-                        <p class="text-center lead">You don't let anything get you down.</p>
-                    </div>
-                </div>
-                <div class="col d-flex flex-column mb-2 mx-1 animate__animated" data-aos="fade-in" data-aos-once="true">
-                    <div class="d-flex flex-column animate__animated flash" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600" style="z-index: 0; position: absolute; background-color:white;">
-                        <label class="text-center lead value" for="freedom">Freedom</label>
-                        <input type="checkbox" name="value" value="freedom" id="freedom">
-                        <img src="{{ url_for('static', filename='images/freedom.png') }}" class="img-fluid mx-auto" alt="Dove icon made https://www.flaticon.com/authors/flat-icons Good Ware" style="max-width: 50%; max-height: 50%">
-                    </div>
-                    <div class="d-flex flex-column animate_animated" style="z-index: -1; position: absolute; overflow: auto;">
-                        <p class="text-center lead">You live your life by your rules.</p>
-                    </div>
-                </div>
-                <div class="col d-flex flex-column mb-2 mx-1 animate__animated" data-aos="fade-in" data-aos-once="true">
-                    <div class="d-flex flex-column animate__animated flash" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600" style="z-index: 0; position: absolute; background-color:white;">
-                        <label class="text-center lead value" for="curiosity">Curiosity</label>
-                        <input type="checkbox" name="value" value="curiosity" id="curiosity">
-                        <img src="{{ url_for('static', filename='images/curiosity.png') }}" class="img-fluid mx-auto" alt="Dove icon made https://www.flaticon.com/authors/flat-icons Good Ware" style="max-width: 50%; max-height: 50%">
-                    </div>
-                    <div class="d-flex flex-column animate_animated" style="z-index: -1; position: absolute; overflow: auto;">
-                        <p class="text-center lead">Your questions never end.</p>
-                    </div>
-                </div>
-                <div class="col d-flex flex-column mb-2 mx-1 animate__animated" data-aos="fade-in" data-aos-once="true">
-                    <div class="d-flex flex-column animate__animated flash" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600" style="z-index: 0; position: absolute; background-color:white;">
-                        <label class="text-center lead value" for="creativity">Creativity</label>
-                        <input type="checkbox" name="value" value="creativity" id="creativity">
-                        <img src="{{ url_for('static', filename='images/creativity.png') }}" class="img-fluid mx-auto" alt="Painting icon made https://www.flaticon.com/authors/flat-icons Freepik" style="max-width: 50%; max-height: 50%">
-                    </div>
-                    <div class="d-flex flex-column animate_animated" style="z-index: -1; position: absolute; overflow: auto;">
-                        <p class="text-center lead">New ideas are your bread and butter.</p>
-                    </div>
-                </div>
+                {{ render_checkboxes.render_checkbox("compassion", "Do unto others as you would have them do unto you", render_value.render_value('compassion')) }}
+                {{ render_checkboxes.render_checkbox("positivity", "You don't let anything get you down", render_value.render_value('positivity')) }}
+                {{ render_checkboxes.render_checkbox("freedom", "You live your life by your rules", render_value.render_value('freedom')) }}
+                {{ render_checkboxes.render_checkbox("curiosity", "Your questions never end", render_value.render_value('curiosity')) }}
+                {{ render_checkboxes.render_checkbox("creativity", "New ideas are your bread and butter", render_value.render_value('creativity')) }}
             </div>
             <div class="row" style="height: 150px">
-                <div class="col d-flex flex-column mb-2 mx-1 animate__animated" data-aos="fade-in" data-aos-once="true">
-                    <div class="d-flex flex-column animate__animated flash" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600" style="z-index: 0; position: absolute; background-color:white;">
-                        <label class="text-center lead value" for="friendship">Friendship</label>
-                        <input type="checkbox" name="value" value="friendship" id="friendship">
-                        <img src="{{ url_for('static', filename='images/friendship.png') }}" class="img-fluid mx-auto" alt="High-five icon made https://www.flaticon.com/authors/flat-icons Freepik" style="max-width: 50%; max-height: 50%">
-                    </div>
-                    <div class="d-flex flex-column animate_animated" style="z-index: -1; position: absolute; overflow: auto;">
-                        <p class="text-center lead">Your<br>loved ones are one of the most important things in your life.</p>
-                    </div>
-                </div>
-                <div class="col d-flex flex-column mb-2 mx-1 animate__animated" data-aos="fade-in" data-aos-once="true">
-                    <div class="d-flex flex-column animate__animated flash" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600" style="z-index: 0; position: absolute; background-color:white;">
-                        <label class="text-center lead value" for="growth">Growth</label>
-                        <input type="checkbox" name="value" value="growth" id="growth">
-                        <img src="{{ url_for('static', filename='images/growth.png') }}" class="img-fluid mx-auto" alt="Tree icon made https://www.flaticon.com/authors/flat-icons Freepik" style="max-width: 50%; max-height: 50%">
-                    </div>
-                    <div class="d-flex flex-column animate_animated" style="z-index: -1; position: absolute; overflow: auto;">
-                        <p class="text-center lead">You<br>want to be the best version of yourself.</p>
-                    </div>
-                </div>
-                <div class="col d-flex flex-column mb-2 mx-1 animate__animated" data-aos="fade-in" data-aos-once="true">
-                    <div class="d-flex flex-column animate__animated flash" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600" style="z-index: 0; position: absolute; background-color:white;">
-                        <label class="text-center lead value" for="knowledge">Knowledge</label>
-                        <input type="checkbox" name="value" value="knowledge" id="knowledge">
-                        <img src="{{ url_for('static', filename='images/knowledge.png') }}" class="img-fluid mx-auto" alt="Book icon made https://www.flaticon.com/authors/flat-icons Freepik" style="max-width: 50%; max-height: 50%">
-                    </div>
-                    <div class="d-flex flex-column animate_animated" style="z-index: -1; position: absolute; overflow: auto;">
-                        <p class="text-center lead">Knowing and understanding more is something you seek.</p>
-                    </div>
-                </div>
-                <div class="col d-flex flex-column mb-2 mx-1 animate__animated" data-aos="fade-in" data-aos-once="true">
-                    <div class="d-flex flex-column animate__animated flash" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600" style="z-index: 0; position: absolute; background-color:white;">
-                        <label class="text-center lead value" for="peace">Peace</label>
-                        <input type="checkbox" name="value" value="peace" id="peace">
-                        <img src="{{ url_for('static', filename='images/peace.png') }}" class="img-fluid mx-auto" alt="Book icon made https://www.flaticon.com/authors/flat-icons Smashicons" style="max-width: 50%; max-height: 50%">
-                    </div>
-                    <div class="d-flex flex-column animate_animated" style="z-index: -1; position: absolute; overflow: auto;">
-                        <p class="text-center lead">You hate conflict and always try to prevent it.</p>
-                    </div>
-                </div>
-                <div class="col d-flex flex-column mb-2 mx-1 animate__animated" data-aos="fade-in" data-aos-once="true">
-                    <div class="d-flex flex-column animate__animated flash" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600" style="z-index: 0; position: absolute; background-color:white;">
-                        <label class="text-center lead value" for="responsibility">Responsibility</label>
-                        <input type="checkbox" name="value" value="responsibility" id="responsibility">
-                        <img src="{{ url_for('static', filename='images/responsibility.png') }}" class="img-fluid mx-auto" alt="Book icon made https://www.flaticon.com/authors/flat-icons Smashicons" style="max-width: 50%; max-height: 50%">
-                    </div>
-                    <div class="d-flex flex-column animate_animated" style="z-index: -1; position: absolute; overflow: auto;">
-                        <p class="text-center lead">Accountability is important to you.</p>
-                    </div>
-                </div>
+                {{ render_checkboxes.render_checkbox("friendship", "Loved ones are one of the most important things in your life", render_value.render_value('friendship')) }}
+                {{ render_checkboxes.render_checkbox("growth", "The want to be the best version of yourself", render_value.render_value('growth')) }}
+                {{ render_checkboxes.render_checkbox("knowledge", "Knowing and understanding more is something you seek", render_value.render_value('knowledge')) }}
+                {{ render_checkboxes.render_checkbox("peace", "Dislike conflict and always try to prevent it", render_value.render_value('peace')) }}
+                {{ render_checkboxes.render_checkbox("responsibility", "Accountability is important to you", render_value.render_value('responsibility')) }}
             </div>
             <div class="row mt-5" style="height: 150px">
                 <button type="submit" style="height: 50px" class="btn btn-light mx-auto">Continue</button>
