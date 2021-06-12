@@ -12,14 +12,14 @@ def questionnaire_reroute(stage):
         1: "Please complete your goals",
         2: "Please complete your milestones",
         3: "Please complete your tasks",
-        4: "You've completed the queestionnaire already"
+        4: "You've completed the questionnaire already"
     }
 
     corrected_routes = {
         1: "goals.goal",
         2: "goals.milestones",
         3: "goals.tasks",
-        4: "pages.home"
+        4: "page.home"
     }
 
     if current_user.is_complete() == stage:

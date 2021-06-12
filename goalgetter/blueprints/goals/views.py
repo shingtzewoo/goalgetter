@@ -59,9 +59,7 @@ def goal():
 @goals.route('/questions/milestones', methods=['GET','POST'])
 @login_required
 def milestones():
-    goal1=Goal.query_info(current_user.values[0].id).first() 
-    goal2=Goal.query_info(current_user.values[1].id).first()
-    goal3=Goal.query_info(current_user.values[2].id).first()
+    goal1, goal2, goal3 =Goal.query_info(current_user.values[0].id).first(), Goal.query_info(current_user.values[1].id).first(), Goal.query_info(current_user.values[2].id).first()
 
     if request.method == "POST":
         
@@ -84,6 +82,8 @@ def milestones():
 @goals.route('/questions/tasks', methods=['GET','POST'])
 @login_required
 def tasks():
+    
+    value1, value2, value3 = current_user.values[0], current_user.values[1], current_user.values[2]
     if request.method == "POST":
 
         # Below we set the task for each milestone. A loop that cycles 3 times is used because each value has 3 milestones.

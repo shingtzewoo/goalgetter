@@ -1,13 +1,41 @@
+{% import 'macros/render_value.html' as render with context %}
 {% extends 'layouts/app.html' %}
 
 {% block title %}Home{% endblock %}
 {% block meta_description %}Your personal space{% endblock %}
 
 {% block body %}
-<div class="row">
-    <div class="col">Quote</div>
-    <div class="col">Values</div>
-</div>
-<div class="row">Tasks</div>
-<div class="row">4</div>
+<section class="container my-5">
+    <div class="row mt-5">
+        <div class="col d-flex align-items-center">
+            <h3 class="text-center">Your Values...</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col d-flex align-items-start">
+            <div class="row">
+                <div class="col" style="height: 200px; width: 200px;">
+                    {{ render.render_value(value1) }}
+                    <p class="lead" style="position: relative; left:10px">{{ value1.capitalize() }}</p>
+                </div>
+                <div class="col" style="height: 200px; width: 200px;">
+                    {{ render.render_value(value2) }}
+                    <p class="lead" style="position: relative; left:10px">{{ value2.capitalize() }}</p>
+                </div>
+                <div class="col" style="height: 200px; width: 200px;">
+                    {{ render.render_value(value3) }}
+                    <p class="lead" style="position: relative; left:10px">{{ value3.capitalize() }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row my-5">
+        <div class="col">
+            <p class="lead text-center">Tasks to Complete</p>
+        </div>
+        <div class="col">
+            <p class="lead text-center">Quote of the Day</p>
+        </div>
+    </div>
+</section>
 {% endblock %}
