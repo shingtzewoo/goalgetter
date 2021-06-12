@@ -5,7 +5,7 @@ function getItemByClass(cls) {
 
 function animation(cls, newClass1, newClass2) {
 
-    /* This reusable function helps add new classes to DOM objects for animation purposes. */
+    /* Add new classes to DOM objects for animation purposes. */
     let items = getItemByClass(cls) 
 
     for (let i = 0 ; i < items.length; i++) {
@@ -29,7 +29,7 @@ function animation(cls, newClass1, newClass2) {
 
 function chosen(checkboxes, cls) {
 
-    /* This function adds borders to the checkboxes containing the values */
+    /* Adds borders to the checkboxes containing the values */
 
     let items1 = document.querySelectorAll(checkboxes);
     let items2 = getItemByClass(cls);
@@ -63,6 +63,8 @@ function chosen(checkboxes, cls) {
 
 function set_disable(cls1, cls2) {
 
+    /* Disables targeted class when another class has an change event triggered */
+
     let event_class = getItemByClass(cls1);
     let to_disable_class = getItemByClass(cls2);
 
@@ -70,7 +72,7 @@ function set_disable(cls1, cls2) {
 
         event_class[i].addEventListener("change", function() {
 
-                if (event_class[i].value.includes('every')) {
+                if (event_class[i].value.includes("every")) {
                     to_disable_class[i].disabled = true;
                 }
                 else {

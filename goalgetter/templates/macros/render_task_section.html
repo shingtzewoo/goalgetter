@@ -1,7 +1,56 @@
 {# Sections for tasks #}
+
+{% macro render_milestone(chosen_value, i) -%}
+<div class="row my-3">
+    <div class="col">
+        <p class="lead">{{ chosen_value.goal.milestone[i].name }}</p>
+    </div>
+</div>
+{%- endmacro %}
+
+{% macro render_textinput(chosen_value, i) -%}
+<div class="row my-3">
+    <div class="col">
+        <input type="textarea" class="form-control" name="{{ chosen_value.goal.milestone[i].id }}" required>
+    </div>
+</div>
+{%- endmacro %}
+
+{% macro render_schedule(chosen_value, i) -%}
+<div class="row my-3">
+    <div class="col">
+        <select class="form-control schedule" name="{{ chosen_value.goal.milestone[i].id }}" required>
+            <option value="every weekday">Every weekday (Monday to Friday)</option>
+            <option value="every weekend">Every weekend (Saturday to Sunday)</option>
+            <option value="every day">Daily</option>
+            <option selected>Weekly</option>
+        </select>
+    </div>
+</div>
+{%- endmacro %}
+
+{% macro render_day(chosen_value, i) -%}
+<div class="row my-3">
+    <div class="col">
+        <select class="form-control day" name="{{ chosen_value.goal.milestone[i].id }}" required>
+            <option>Monday</option>
+            <option>Tuesday</option>
+            <option>Wednesday</option>
+            <option>Thursday</option>
+            <option>Friday</option>
+            <option>Saturday</option>
+            <option>Sunday</option>
+        </select>
+    </div>
+</div>
+{%- endmacro %}
+
 {% macro render_task_section(chosen_value) -%}
-<div class="row d-flex">
+<div class="row d-flex animate__animated" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600">
     <div class="col-3">
+        <div class="row">
+            <div class="col"><p class="lead font-weight-bold" style="visibility: hidden">placeholder</p></div>
+        </div>
         <div class="row">
             <div class="col"><p class="lead">{{ chosen_value.goal.milestone[0].name }}</p></div>
         </div>
@@ -14,7 +63,14 @@
     </div>
     <div class="col form-group">
         <div class="row">
-            <div class="col"><input type="textarea" class="form-control" name="{{ chosen_value.goal.milestone[0].id }}" required></div>
+            <div class="col">
+                <p class="lead font-weight-bold">Task</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="textarea" class="form-control" name="{{ chosen_value.goal.milestone[0].id }}" required>
+            </div>
         </div>
         <div class="row my-3">
             <div class="col"><input type="textarea" class="form-control" name="{{ chosen_value.goal.milestone[1].id }}" required></div>
@@ -25,43 +81,46 @@
     </div>
     <div class="col form-group">
         <div class="row">
+            <div class="col"><p class="lead font-weight-bold">Schedule</p></div>
+        </div>
+        <div class="row">
             <div class="col">
-                <select class="form-control schedule" name="schedule" required>
+                <select class="form-control schedule" name="{{ chosen_value.goal.milestone[0].id }}" required>
                     <option value="every weekday">Every weekday (Monday to Friday)</option>
                     <option value="every weekend">Every weekend (Saturday to Sunday)</option>
                     <option value="every day">Daily</option>
                     <option selected>Weekly</option>
-                    <option>Monthly</option>
                 </select>
             </div>
         </div>
         <div class="row my-3">
             <div class="col">
-                <select class="form-control schedule" name="schedule" required>
+                <select class="form-control schedule" name="{{ chosen_value.goal.milestone[1].id }}" required>
                     <option value="every weekday">Every weekday (Monday to Friday)</option>
                     <option value="every weekend">Every weekend (Saturday to Sunday)</option>
                     <option value="every day">Daily</option>
                     <option selected>Weekly</option>
-                    <option>Monthly</option>
                 </select>
             </div>
         </div>
         <div class="row my-3">
             <div class="col">
-                <select class="form-control schedule" name="schedule" required>
+                <select class="form-control schedule" name="{{ chosen_value.goal.milestone[2].id }}" required>
                     <option value="every weekday">Every weekday (Monday to Friday)</option>
                     <option value="every weekend">Every weekend (Saturday to Sunday)</option>
                     <option value="every day">Daily</option>
                     <option selected>Weekly</option>
-                    <option>Monthly</option>
                 </select>
             </div>
         </div>
     </div>
     <div class="col form-group">
         <div class="row">
+            <div class="col"><p class="lead font-weight-bold">Day</p></div>
+        </div>
+        <div class="row">
             <div class="col">
-                <select class="form-control day" name="day" required>
+                <select class="form-control day" name="{{ chosen_value.goal.milestone[0].id }}" required>
                     <option>Monday</option>
                     <option>Tuesday</option>
                     <option>Wednesday</option>
@@ -74,7 +133,7 @@
         </div>
         <div class="row my-3">
             <div class="col">
-                <select class="form-control day" name="day" required>
+                <select class="form-control day" name="{{ chosen_value.goal.milestone[1].id }}" required>
                     <option>Monday</option>
                     <option>Tuesday</option>
                     <option>Wednesday</option>
@@ -87,7 +146,7 @@
         </div>
         <div class="row my-3">
             <div class="col">
-                <select class="form-control day" name="day" required>
+                <select class="form-control day" name="{{ chosen_value.goal.milestone[2].id }}" required>
                     <option>Monday</option>
                     <option>Tuesday</option>
                     <option>Wednesday</option>

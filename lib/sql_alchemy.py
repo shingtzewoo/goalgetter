@@ -17,11 +17,14 @@ class ResourceMixin():
         self.save()
         return True
     
-    def set_enddate(self, enddate):
+    def set_date(self, date, start=True):
         '''
         Sets the enddate for an instance model (specifically for goals and milestones)
         '''
-        self.enddate = enddate
+        if start == False:
+            self.enddate = date
+        else:
+            self.startdate = date
         self.save()
         return True
     
