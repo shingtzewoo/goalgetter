@@ -5,7 +5,8 @@ function getItemByClass(cls) {
 
 function animation(cls, newClass1, newClass2) {
 
-    /* Add new classes to DOM objects for animation purposes. */
+    /* Add new classes to the same item. */
+    
     let items = getItemByClass(cls) 
 
     for (let i = 0 ; i < items.length; i++) {
@@ -29,7 +30,7 @@ function animation(cls, newClass1, newClass2) {
 
 function chosen(checkboxes, cls) {
 
-    /* Adds borders to the checkboxes containing the values */
+    /* Adds borders to the checkboxes in the values questionnaire page */
 
     let items1 = document.querySelectorAll(checkboxes);
     let items2 = getItemByClass(cls);
@@ -81,4 +82,38 @@ function set_disable(cls1, cls2) {
 
         }, false);
     }
+}
+
+function animation_two_objects(cls1, cls2, newClass1) {
+
+    /* 
+    Add new classes to a different item e.g. if cls1 is clicked, cls2 has a class added to it
+    . */
+    
+    let items1 = getItemByClass(cls1)
+    let items2 = getItemByClass(cls2);
+    
+    for (let i = 0 ; i < items1.length; i++) {
+
+    
+        items1[i].addEventListener("click", function() {
+        
+            switch(items1[i].getAttribute('aria-checked')) {
+
+                case "true":
+            
+                    items1[i].setAttribute('aria-checked', "false");
+                    items2[i].classList.remove(newClass1);  
+                    break;
+
+                case "false":
+
+                    items1[i].setAttribute('aria-checked', "true");
+                    items2[i].classList.add(newClass1);
+                    break;
+
+            }
+        },  false);
+
+     }
 }

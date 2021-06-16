@@ -1,11 +1,28 @@
 section {
     height: 500px;
 }
-  
-input[type=checkbox] {
-    display: none;
-}
 
 .hide {
     display: none;
+}
+
+.border {
+    border: 1px solid black;
+}
+
+.circle_1 {
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+}
+
+.circle_2 {
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+}
+
+
+ul {
+    list-style-type: none;
 }

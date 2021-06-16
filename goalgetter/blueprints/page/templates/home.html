@@ -1,4 +1,5 @@
-{% import 'macros/render_value.html' as render with context %}
+{% import 'macros/render_value.html' as render_value with context %}
+{% import 'macros/render_checkboxes.html' as render_checkboxes with context %}
 {% extends 'layouts/app.html' %}
 
 {% block title %}Home{% endblock %}
@@ -15,15 +16,15 @@
         <div class="col d-flex align-items-start">
             <div class="row">
                 <div class="col" style="height: 200px; width: 200px;">
-                    {{ render.render_value(value1) }}
+                    {{ render_value.render_value(value1) }}
                     <p class="lead" style="position: relative; left:10px">{{ value1.capitalize() }}</p>
                 </div>
                 <div class="col" style="height: 200px; width: 200px;">
-                    {{ render.render_value(value2) }}
+                    {{ render_value.render_value(value2) }}
                     <p class="lead" style="position: relative; left:10px">{{ value2.capitalize() }}</p>
                 </div>
                 <div class="col" style="height: 200px; width: 200px;">
-                    {{ render.render_value(value3) }}
+                    {{ render_value.render_value(value3) }}
                     <p class="lead" style="position: relative; left:10px">{{ value3.capitalize() }}</p>
                 </div>
             </div>
@@ -31,11 +32,45 @@
     </div>
     <div class="row my-5">
         <div class="col">
-            <p class="lead text-center">Tasks to Complete</p>
+            <p class="lead">Tasks to Complete</p>
+            <ul>
+                <!-- Have to fix the spacing here, everytime button is clicked, the divs move, because of the grid layout -->
+                <li aria-selected="false">
+                    <div class="row task_item">
+                        <div class="col-2">
+                            {{ render_checkboxes.render_task_checkbox() }}
+                        </div>
+                        <div class="col task_description">
+                        </div>
+                    </div>
+                </li>
+                <li aria-selected="false">
+                    <div class="row task_item">
+                        <div class="col">
+                            {{ render_checkboxes.render_task_checkbox() }}
+                        </div>
+                        <div class="col task_description">
+                        </div>
+                    </div>
+                </li>
+                <li aria-selected="false">
+                    <div class="row task_item">
+                        <div class="col">
+                            {{ render_checkboxes.render_task_checkbox() }}
+                        </div>
+                        <div class="col task_description">
+                        </div>
+                    </div>
+                </li>
+            </ul>
         </div>
         <div class="col">
-            <p class="lead text-center">Quote of the Day</p>
+            <p class="lead">Quote of the Day</p>
         </div>
     </div>
 </section>
+<script src="{{ url_for('static', filename='scripts/main.js') }}" type="text/javascript"></script>
+<script>
+    animation_two_objects("circle_1", "picture", "hide")
+</script>
 {% endblock %}
