@@ -16,16 +16,16 @@
         <div class="col d-flex align-items-start">
             <div class="row">
                 <div class="col" style="height: 200px; width: 200px;">
-                    {{ render_value.render_value(value1) }}
-                    <p class="lead" style="position: relative; left:10px">{{ value1.capitalize() }}</p>
+                    {{ render_value.render_value(value1.value) }}
+                    <p class="lead" style="position: relative; left:10px">{{ value1.value.capitalize() }}</p>
                 </div>
                 <div class="col" style="height: 200px; width: 200px;">
-                    {{ render_value.render_value(value2) }}
-                    <p class="lead" style="position: relative; left:10px">{{ value2.capitalize() }}</p>
+                    {{ render_value.render_value(value2.value) }}
+                    <p class="lead" style="position: relative; left:10px">{{ value2.value.capitalize() }}</p>
                 </div>
                 <div class="col" style="height: 200px; width: 200px;">
-                    {{ render_value.render_value(value3) }}
-                    <p class="lead" style="position: relative; left:10px">{{ value3.capitalize() }}</p>
+                    {{ render_value.render_value(value3.value) }}
+                    <p class="lead" style="position: relative; left:10px">{{ value3.value.capitalize() }}</p>
                 </div>
             </div>
         </div>
@@ -34,31 +34,33 @@
         <div class="col">
             <p class="lead">Tasks to Complete</p>
             <ul>
-                <!-- Have to fix the spacing here, everytime button is clicked, the divs move, because of the grid layout -->
                 <li aria-selected="false">
                     <div class="row task_item">
                         <div class="col-2">
-                            {{ render_checkboxes.render_task_checkbox() }}
+                            {{ render_checkboxes.render_task_checkbox(current_milestones[0].task.id) }}
                         </div>
-                        <div class="col task_description">
+                        <div class="col">
+                            <p class="task_description">{{ current_milestones[0].task.name }}</p>
                         </div>
                     </div>
                 </li>
                 <li aria-selected="false">
                     <div class="row task_item">
-                        <div class="col">
-                            {{ render_checkboxes.render_task_checkbox() }}
+                        <div class="col-2">
+                            {{ render_checkboxes.render_task_checkbox(current_milestones[1].task.id) }}
                         </div>
-                        <div class="col task_description">
+                        <div class="col">
+                            <p class="task_description">{{ current_milestones[1].task.name }}</p>
                         </div>
                     </div>
                 </li>
                 <li aria-selected="false">
                     <div class="row task_item">
-                        <div class="col">
-                            {{ render_checkboxes.render_task_checkbox() }}
+                        <div class="col-2">
+                            {{ render_checkboxes.render_task_checkbox(current_milestones[2].task.id) }}
                         </div>
-                        <div class="col task_description">
+                        <div class="col">
+                            <p class="task_description">{{ current_milestones[2].task.name }}</p>
                         </div>
                     </div>
                 </li>
@@ -71,6 +73,6 @@
 </section>
 <script src="{{ url_for('static', filename='scripts/main.js') }}" type="text/javascript"></script>
 <script>
-    animation_two_objects("circle_1", "picture", "hide")
+    tickmark_task("circle", "picture", "task_description", "hide", "checked");
 </script>
 {% endblock %}

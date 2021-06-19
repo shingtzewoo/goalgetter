@@ -3,6 +3,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from goalgetter.extensions import db
 from goalgetter.blueprints.goals.models.values import Value
 from lib.sql_alchemy import ResourceMixin
+from datetime import *
+from dateutil.relativedelta import *
 
 class User(UserMixin, ResourceMixin, db.Model):
     '''
@@ -15,6 +17,9 @@ class User(UserMixin, ResourceMixin, db.Model):
     password = db.Column(db.String, nullable=False, server_default='')
     name = db.Column(db.String(128))
     questionnaire = db.Column('is_complete', db.Integer, nullable=False, server_default='0')
+
+    # tracking the sign in date for the user
+    current_sign_in = db.Column(db.DateTime, nullable=False, default=date.today())
     
     # 1:M relationship with the values table
     values = db.relationship(Value, uselist=True, backref='values', passive_deletes=True)

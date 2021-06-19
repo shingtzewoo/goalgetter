@@ -59,7 +59,7 @@ def goal():
 @goals.route('/questions/milestones', methods=['GET','POST'])
 @login_required
 def milestones():
-    goal1, goal2, goal3 =Goal.query_info(current_user.values[0].id).first(), Goal.query_info(current_user.values[1].id).first(), Goal.query_info(current_user.values[2].id).first()
+    goal1, goal2, goal3 = Goal.query_by_foreignid(current_user.values[0].id).first(), Goal.query_by_foreignid(current_user.values[1].id).first(), Goal.query_by_foreignid(current_user.values[2].id).first()
 
     if request.method == "POST":
         
@@ -106,6 +106,6 @@ def tasks():
         return redirect(url_for("page.home"))
     else:
         if current_user.is_complete() == 3:
-            return render_template("tasks.html", value1=current_user.values[0], value2=current_user.values[1], value3=current_user.values[2])
+            return render_template("tasks.html", value1=value1, value2=value2, value3=value3)
         else:
             return questionnaire_reroute(current_user.is_complete())

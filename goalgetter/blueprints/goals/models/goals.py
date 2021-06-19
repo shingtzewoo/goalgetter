@@ -11,6 +11,7 @@ class Goal(db.Model, ResourceMixin):
     name = db.Column(db.String(128), nullable=False, server_default='')
     startdate = db.Column(db.DateTime, nullable=False, default=(date.today()))
     enddate = db.Column(db.DateTime, nullable=False, default=(date.today()+relativedelta(years=+1)))
+    complete = db.Column('is_complete', db.Boolean(), nullable=False, server_default='0')
 
 
     # 1:1 relationship with the values table, https://docs.sqlalchemy.org/en/14/core/constraints.html#sqlalchemy.schema.ForeignKey and https://docs.sqlalchemy.org/en/14/orm/cascades.html#passive-deletes

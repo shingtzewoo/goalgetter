@@ -10,19 +10,21 @@ section {
     border: 1px solid black;
 }
 
-.circle_1 {
+.circle {
     border-radius: 50%;
     width: 20px;
     height: 20px;
 }
 
-.circle_2 {
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-}
-
+.checked {
+    color: black;
+    text-decoration: line-through;
+  }
 
 ul {
     list-style-type: none;
+}
+
+button:focus {
+    outline: none;
 }

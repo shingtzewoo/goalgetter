@@ -84,14 +84,15 @@ function set_disable(cls1, cls2) {
     }
 }
 
-function animation_two_objects(cls1, cls2, newClass1) {
+function tickmark_task(class1, class2, class3, newClass1, newClass2,) {
 
     /* 
-    Add new classes to a different item e.g. if cls1 is clicked, cls2 has a class added to it
+    Adding checkmarks to the divs and adding a line-through to the text
     . */
     
-    let items1 = getItemByClass(cls1)
-    let items2 = getItemByClass(cls2);
+    let items1 = getItemByClass(class1)
+    let items2 = getItemByClass(class2);
+    let items3 = getItemByClass(class3);
     
     for (let i = 0 ; i < items1.length; i++) {
 
@@ -103,13 +104,15 @@ function animation_two_objects(cls1, cls2, newClass1) {
                 case "true":
             
                     items1[i].setAttribute('aria-checked', "false");
-                    items2[i].classList.remove(newClass1);  
+                    items2[i].classList.remove(newClass1);
+                    items3[i].classList.add(newClass2) 
                     break;
 
                 case "false":
 
                     items1[i].setAttribute('aria-checked', "true");
                     items2[i].classList.add(newClass1);
+                    items3[i].classList.remove(newClass2);
                     break;
 
             }
@@ -117,3 +120,4 @@ function animation_two_objects(cls1, cls2, newClass1) {
 
      }
 }
+

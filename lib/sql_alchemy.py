@@ -3,7 +3,21 @@ from goalgetter.extensions import db
 class ResourceMixin():
 
     @classmethod
-    def query_info(cls, id):
+    def query_by_foreignid(cls, id):
+        '''
+        Searches the class's table for a value that matches the one supplied using SQLAlchemy's query class
+        '''
+        return cls.query.filter_by(foreign_id=id)
+    
+    @classmethod
+    def query_by_date(cls, date):
+        '''
+        Searches the class's table for a value that matches the one supplied using SQLAlchemy's query class
+        '''
+        return cls.query.filter(cls.startdate <= date, cls.enddate > date).all()
+    
+    @classmethod
+    def query_by_id(cls, id):
         '''
         Searches the class's table for a value that matches the one supplied using SQLAlchemy's query class
         '''
@@ -43,3 +57,9 @@ class ResourceMixin():
         db.session.delete(self)
         db.session.commit()
         return True
+    
+    def is_complete(self):
+        '''
+        Return whether the instance of the instance model has been completed
+        '''
+        return self.complete

@@ -11,9 +11,10 @@ class Milestone(db.Model, ResourceMixin):
     name = db.Column(db.String(128), nullable=False, server_default='')
     startdate = db.Column(db.DateTime, nullable=False, default=date.today())
     enddate = db.Column(db.DateTime, nullable=False, default=date.today())
+    complete = db.Column('is_complete', db.Boolean(), nullable=False, server_default='0')
 
     # 1:M relationship with tasks. Currently, a milestone will have one task associated with it.
-    task = db.relationship(Task, uselist=True, backref='tasks', passive_deletes=True)
+    task = db.relationship(Task, uselist=False, backref='tasks', passive_deletes=True)
 
     # M:1 relationship with the goals table, https://docs.sqlalchemy.org/en/14/core/constraints.html#sqlalchemy.schema.ForeignKey and https://docs.sqlalchemy.org/en/14/orm/cascades.html#passive-deletes
     foreign_id = db.Column(db.Integer, db.ForeignKey('goals.id', onupdate='CASCADE', ondelete='CASCADE'), index=True, nullable=False)
