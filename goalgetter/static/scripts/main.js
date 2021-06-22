@@ -102,17 +102,17 @@ function tickmark_task(class1, class2, class3, newClass1, newClass2,) {
             switch(items1[i].getAttribute('aria-checked')) {
 
                 case "true":
-            
+
+                    items2[i].classList.toggle(newClass1);
+                    items3[i].classList.toggle(newClass2) 
                     items1[i].setAttribute('aria-checked', "false");
-                    items2[i].classList.remove(newClass1);
-                    items3[i].classList.add(newClass2) 
                     break;
 
                 case "false":
 
+                    items2[i].classList.toggle(newClass1);
+                    items3[i].classList.toggle(newClass2);
                     items1[i].setAttribute('aria-checked', "true");
-                    items2[i].classList.add(newClass1);
-                    items3[i].classList.remove(newClass2);
                     break;
 
             }
