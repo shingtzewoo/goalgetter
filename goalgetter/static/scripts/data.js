@@ -2,26 +2,28 @@ function handleErrors(response) {
     if (!response.ok) {
         throw Error(response.status);
     }
-    return response.json();
+    return response.json().then(function(data) {
+        console.log(data)
+    });
 }
 
-function submit(checkbox, task) {
+function submit(task) {
     
-    let items1 = getItemByClass(checkbox);
+    let items = getItemByClass(task);
     
     for (let i = 0 ; i < items.length; i++) {
 
-        items1[i].addEventListener("click", function() {
+        items[i].addEventListener("click", function() {
             
-            switch(items1[i].getAttribute('aria-checked')) {
+            switch(items[i].getAttribute('aria-checked')) {
 
                 case "true":
-                    fetch("/page/home", {
+                    fetch("/home", {
                         method: "POST",
                         body: JSON.stringify({
-                            id: items1[i].value,
+                            id: items[i].value,
                             complete: true
-                        })
+                        }),
                         headers: {
                             'Content-type': 'application/json; charset=UTF-8'
                         }
@@ -32,12 +34,12 @@ function submit(checkbox, task) {
                     });
                 
                 case "false":
-                    fetch("/page/home", {
+                    fetch("/home", {
                         method: "POST",
                         body: JSON.stringify({
-                            id: items1[i].value,
+                            id: items[i].value,
                             complete: false
-                        })
+                        }),
                         headers: {
                             'Content-type': 'application/json; charset=UTF-8'
                         }
@@ -47,6 +49,6 @@ function submit(checkbox, task) {
                         console.log(error);
                     });
             }
-        }
+        })
     }
 }
