@@ -11,6 +11,7 @@ from lib.route_logic import questionnaire_reroute
 goals = Blueprint('goals', __name__, template_folder='templates')
 
 @goals.route('/questions/values', methods=['GET', 'POST'])
+@questionnaire_reroute
 @login_required
 def values():
     if request.method == "POST":
@@ -33,10 +34,9 @@ def values():
     else:
         if current_user.is_complete() == 0:
             return render_template("values.html")
-        else:
-            return questionnaire_reroute(current_user.is_complete())
 
 @goals.route('/questions/goals', methods=['GET','POST'])
+@questionnaire_reroute
 @login_required
 def goal():
     if request.method == "POST":
@@ -53,10 +53,9 @@ def goal():
     else:
         if current_user.is_complete() == 1:
             return render_template("develop_goals.html", value1=current_user.values[0].value, value2=current_user.values[1].value, value3=current_user.values[2].value)
-        else:
-            return questionnaire_reroute(current_user.is_complete())
 
 @goals.route('/questions/milestones', methods=['GET','POST'])
+@questionnaire_reroute
 @login_required
 def milestones():
     goal1, goal2, goal3 = Goal.query_by_foreignid(current_user.values[0].id).first(), Goal.query_by_foreignid(current_user.values[1].id).first(), Goal.query_by_foreignid(current_user.values[2].id).first()
@@ -76,10 +75,9 @@ def milestones():
     else:
         if current_user.is_complete() == 2:
             return render_template("milestones.html", goal1=goal1, goal2=goal2, goal3=goal3)
-        else:
-            return questionnaire_reroute(current_user.is_complete())
 
 @goals.route('/questions/tasks', methods=['GET','POST'])
+@questionnaire_reroute
 @login_required
 def tasks():
     
@@ -107,5 +105,3 @@ def tasks():
     else:
         if current_user.is_complete() == 3:
             return render_template("tasks.html", value1=value1, value2=value2, value3=value3)
-        else:
-            return questionnaire_reroute(current_user.is_complete())

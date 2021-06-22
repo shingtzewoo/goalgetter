@@ -3,7 +3,7 @@
   <div class="col d-flex flex-column mb-2 mx-1" style="height:150px;">
       <div class="d-flex flex-column animate__animated flash hide" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600" style="z-index: 0; position: absolute; background-color:white;">
           <label class="text-center lead value" for="{{value}}">{{ value.capitalize() }}</label>
-          <input type="checkbox" name="value" value="{{value}}" id="{{value}}">
+          <input class="hide" type="checkbox" name="value" value="{{value}}" id="{{value}}">
           {{ other_macro }}
       </div>
       <div class="d-flex flex-column animate_animated" style="z-index: -1; position: absolute; overflow: auto;">

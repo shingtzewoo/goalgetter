@@ -1,27 +1,28 @@
 from flask_login import current_user
 from flask import redirect, flash, url_for
 from flask_login import current_user
+from functools import wraps
+from flask import request
 
-def questionnaire_reroute(stage):
+def questionnaire_reroute(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        messages = {
+            0: "Please complete your values",
+            1: "Please complete your goals",
+            2: "Please complete your milestones",
+            3: "Please complete your tasks",
+        }
 
-    '''
-    Reroutes users based on their completion stage in the questionnaire
-    '''
-
-    messages = {
-        1: "Please complete your goals",
-        2: "Please complete your milestones",
-        3: "Please complete your tasks",
-        4: "You've completed the questionnaire already"
-    }
-
-    corrected_routes = {
-        1: "goals.goal",
-        2: "goals.milestones",
-        3: "goals.tasks",
-        4: "page.home"
-    }
-
-    if current_user.is_complete() == stage:
-        flash(messages.get(stage), "danger")
-        return redirect(url_for(corrected_routes.get(stage)))
+        corrected_routes = {
+            0: "goals.values",
+            1: "goals.goal",
+            2: "goals.milestones",
+            3: "goals.tasks",
+        }
+        if current_user.is_complete() < 4:
+            if url_for(corrected_routes.get(current_user.is_complete())) != request.path:
+                flash(messages.get(current_user.is_complete()), "danger")
+                return redirect(url_for(corrected_routes.get(current_user.is_complete())))
+        return f(*args, **kwargs)
+    return decorated_function
