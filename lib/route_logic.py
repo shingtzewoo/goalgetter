@@ -12,17 +12,17 @@ def questionnaire_reroute(f):
             1: "Please complete your goals",
             2: "Please complete your milestones",
             3: "Please complete your tasks",
+            4: "You have already completed the questionnaire"
         }
-
         corrected_routes = {
             0: "goals.values",
             1: "goals.goal",
             2: "goals.milestones",
             3: "goals.tasks",
+            4: "page.home"
         }
-        if current_user.is_complete() < 4:
-            if url_for(corrected_routes.get(current_user.is_complete())) != request.path:
-                flash(messages.get(current_user.is_complete()), "danger")
-                return redirect(url_for(corrected_routes.get(current_user.is_complete())))
+        if url_for(corrected_routes.get(current_user.is_complete())) != request.path:
+            flash(messages.get(current_user.is_complete()), "danger")
+            return redirect(url_for(corrected_routes.get(current_user.is_complete())))
         return f(*args, **kwargs)
     return decorated_function
