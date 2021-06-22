@@ -11,17 +11,10 @@ function animation(cls, newClass1, newClass2) {
 
     for (let i = 0 ; i < items.length; i++) {
 
-        items[i].addEventListener("mouseenter", function(event) {
+        items[i].addEventListener("mouseover", function(event) {
 
-            event.target.classList.add(newClass1);
-            event.target.classList.remove(newClass2);
-        
-        }, false);
-
-        items[i].addEventListener("mouseleave", function(event) {
-
-            event.target.classList.add(newClass2);
-            event.target.classList.remove(newClass1);
+            event.target.classList.toggle(newClass1);
+            event.target.classList.toggle(newClass2);
         
         }, false);
 
@@ -98,26 +91,18 @@ function tickmark_task(class1, class2, class3, newClass1, newClass2,) {
 
     
         items1[i].addEventListener("click", function() {
-        
+
+            items2[i].classList.toggle(newClass1);
+            items3[i].classList.toggle(newClass2);
             switch(items1[i].getAttribute('aria-checked')) {
-
                 case "true":
-
-                    items2[i].classList.toggle(newClass1);
-                    items3[i].classList.toggle(newClass2) 
                     items1[i].setAttribute('aria-checked', "false");
                     break;
-
                 case "false":
-
-                    items2[i].classList.toggle(newClass1);
-                    items3[i].classList.toggle(newClass2);
                     items1[i].setAttribute('aria-checked', "true");
                     break;
-
             }
         },  false);
-
-     }
+    }
 }
 
