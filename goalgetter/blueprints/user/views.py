@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, url_for, flash, current_app, request, redirect
 from werkzeug.security import generate_password_hash
-from flask_login import login_required, login_user, current_user, logout_user
+from flask_login import login_required, login_user, logout_user
 from goalgetter.blueprints.user.decorators import anonymous_required
 from goalgetter.blueprints.user.forms import LoginForm, SignupForm
 from goalgetter.blueprints.user.models import User

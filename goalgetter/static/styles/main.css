@@ -6,10 +6,6 @@ section {
     display: none;
 }
 
-.border {
-    border: 1px solid black;
-}
-
 .circle {
     border-radius: 50%;
     width: 20px;
@@ -27,4 +23,27 @@ ul {
 
 button:focus {
     outline: none;
+}
+
+.dashboard-general {
+    border-radius: 20px;
+}
+
+.dashboard-item1 {
+    background-color: #c95d63;
+    color: #ffe8d6;
+}
+
+.dashboard-item2 {
+    background-color: white;
+    color: black;
+}
+
+.dashboard-item3 {
+    background-color: #496ddb;
+}
+
+body {
+    font-family: Verdana, sans-serif;
+    background-color: #ffe8d6;
 }

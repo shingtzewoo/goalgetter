@@ -7,32 +7,34 @@
 
 {% block body %}
 <section class="container my-5">
-    <div class="row mt-5">
-        <div class="col d-flex align-items-center">
-            <h3 class="text-center">Your Values...</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col d-flex align-items-start">
+    <div class="row mt-5" style="height: 150px;">
+        <div class="col-6 dashboard-general dashboard-item1">
             <div class="row">
-                <div class="col" style="height: 200px; width: 200px;">
-                    {{ render_value.render_value(value1.value) }}
-                    <p class="lead" style="position: relative; left:10px">{{ value1.value.capitalize() }}</p>
+                <div class="col-7">
+                    <div class="row">
+                        <div class="col">
+                            <p class="lead" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600" style="position: relative; left: 40px; top: 40px;">Hello, {{ current_user.name }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600" style="position: relative; left: 40px; top: 30px;">Welcome back to your hub</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="col" style="height: 200px; width: 200px;">
-                    {{ render_value.render_value(value2.value) }}
-                    <p class="lead" style="position: relative; left:10px">{{ value2.value.capitalize() }}</p>
-                </div>
-                <div class="col" style="height: 200px; width: 200px;">
-                    {{ render_value.render_value(value3.value) }}
-                    <p class="lead" style="position: relative; left:10px">{{ value3.value.capitalize() }}</p>
+                <div class="col-3 d-flex align-items-center">
+                    <img src="{{ url_for('static', filename='images/house.png') }}" class="img-fluid mx-auto" alt="House icon made https://www.flaticon.com/authors/flat-icons Freepik" style="max-width: 70%; max-height: 70%; position: relative; left: 30px; top: 20px;">
                 </div>
             </div>
         </div>
+        <div class="col-4">
+        </div>
+    </div>
+    <div class="row">
     </div>
     <div class="row my-5">
-        <div class="col">
-            <p class="lead">Tasks to Complete</p>
+        <div class="col-5 dashboard-general dashboard-item2">
+            <p class="lead text-center" style="position: relative; top:50px;">Tasks to Complete</p>
             {% if day in current_milestones[0].task.repeat_day or day in current_milestones[1].task.repeat_day or day in current_milestones[2].task.repeat_day %}
                 <ul>
                     {% if day in current_milestones[0].task.repeat_day %}
@@ -73,35 +75,57 @@
                     {% endif %}
                 </ul>
             {% else %}
-            <div class="row">
-                <div class="col">
-                    <p class="lead">
-                        No tasks to do today!
-                    </p>
+            <div class="row" style="position: relative; top: 30px;">
+                <div class="col">   
+                    <div class="row">
+                        <div class="col">
+                            <p class="text-center">
+                                No tasks to do today!
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col d-flex justify-content-center">
+                            <img src="{{ url_for('static', filename='images/checkmark.png') }}" class="img-fluid mx-auto" alt="Checkmark icon made Freepik from flaticon" style="max-width: 70%; max-height: 70%">
+                        </div>
+                    </div>
                 </div>
             </div>
             {% endif %}
         </div>
-        <div class="col">
+        <div class="col-1"></div>
+        <div class="col-6">
             <div class="row">
                 <div class="col" style="height: 150px;">
-                    <p class="lead">Quote of the Day</p>
+                    <p id="quote"></p>
+                    <span style="z-index:50;font-size:0.9em; font-weight: bold;">
+                        <img src="https://theysaidso.com/branding/theysaidso.png" height="20" width="20" alt="theysaidso.com"/>
+                        <a href="https://theysaidso.com" title="Powered by quotes from theysaidso.com" style="color: #ccc; margin-left: 4px; vertical-align: middle;">
+                          They Said So®
+                        </a>
+                  </span>
                 </div>
             </div>
+            <div class="row"></div>
             <div class="row">
-                <div class="col d-flex align-items-start">
-                    <div class="row">
+                <div class="col dashboard-general dashboard-item2">
+                    <div class="row" style="position: relative; top: 15px">
+                        <div class="col">
+                            <p class="lead text-center">Your Values</p>
+                        </div>
+                    </div>
+                    <div class="row dashboard-item" style="position: relative; top: 15px; left: 30px;">
                         <div class="col" style="height: 150px; width: 200px;">
                             {{ render_value.render_value(value1.value) }}
-                            <p class="lead" style="position: relative; left:10px">{{ value1.value.capitalize() }}</p>
+                            <p class="lead">{{ value1.value.capitalize() }}</p>
                         </div>
                         <div class="col" style="height: 150px; width: 100px;">
                             {{ render_value.render_value(value2.value) }}
-                            <p class="lead" style="position: relative; left:10px">{{ value2.value.capitalize() }}</p>
+                            <p class="lead">{{ value2.value.capitalize() }}</p>
                         </div>
                         <div class="col" style="height: 150px; width: 100px;">
                             {{ render_value.render_value(value3.value) }}
-                            <p class="lead" style="position: relative; left:10px">{{ value3.value.capitalize() }}</p>
+                            <p class="lead">{{ value3.value.capitalize() }}</p>
                         </div>
                     </div>
                 </div>
@@ -115,6 +139,6 @@
 <script>
     tickmark_task("circle", "picture", "task_description", "hide", "checked");
     submit("circle");
-    get_quote_of_the_day()
+    get_quote();
 </script>
 {% endblock %}

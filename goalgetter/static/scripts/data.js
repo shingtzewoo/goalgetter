@@ -28,7 +28,7 @@ function submit(task) {
                     .then(handleErrors)
                     .catch(function(error) {
                         console.log(error);
-                    });
-        });
+                    })
+        })
     }
 }
