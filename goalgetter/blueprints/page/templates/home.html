@@ -34,10 +34,17 @@
     </div>
     <div class="row my-5">
         <div class="col-5 dashboard-general dashboard-item2">
-            <p class="lead text-center" style="position: relative; top:50px;">Tasks to Complete</p>
-            {% if day in current_milestones[0].task.repeat_day or day in current_milestones[1].task.repeat_day or day in current_milestones[2].task.repeat_day %}
+            <div class="row" style="height: 100px;">
+                <div class="col d-flex">
+                    <img src="{{ url_for('static', filename='images/checkmark.png') }}" class="img-fluid mx-auto" alt="Checkmark icon made Freepik from flaticon" style="position: relative; top: 10px; max-width: 50%; max-height: 50%">
+                </div>
+            </div>
+            <div class="row" style="position: relative; top: 20px;">
+                <div class="col">
+                    <p class="lead text-center">Tasks to Complete</p>
+            {% if day|string in current_milestones[0].task.repeat_day or day|string in current_milestones[1].task.repeat_day or day|string in current_milestones[2].task.repeat_day %}
                 <ul>
-                    {% if day in current_milestones[0].task.repeat_day %}
+                    {% if day|string == current_milestones[0].task.repeat_day %}
                     <li>
                         <div class="row task_item">
                             <div class="col-2">
@@ -49,7 +56,7 @@
                         </div>
                     </li>
                     {% endif %}
-                    {% if day in current_milestones[1].task.repeat_day %}
+                    {% if day|string in current_milestones[1].task.repeat_day %}
                     <li>
                         <div class="row task_item">
                             <div class="col-2">
@@ -61,7 +68,7 @@
                         </div>
                     </li>
                     {% endif %}
-                    {% if day in current_milestones[2].task.repeat_day %}
+                    {% if day|string in current_milestones[2].task.repeat_day %}
                     <li>
                         <div class="row task_item">
                             <div class="col-2">
@@ -75,7 +82,7 @@
                     {% endif %}
                 </ul>
             {% else %}
-            <div class="row" style="position: relative; top: 30px;">
+            <div class="row">
                 <div class="col">   
                     <div class="row">
                         <div class="col">
@@ -84,29 +91,28 @@
                             </p>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col d-flex justify-content-center">
-                            <img src="{{ url_for('static', filename='images/checkmark.png') }}" class="img-fluid mx-auto" alt="Checkmark icon made Freepik from flaticon" style="max-width: 70%; max-height: 70%">
-                        </div>
-                    </div>
                 </div>
             </div>
             {% endif %}
+                </div>
+            </div>
         </div>
         <div class="col-1"></div>
         <div class="col-6">
-            <div class="row">
+            <div class="row dashboard-general dashboard-item2">
                 <div class="col" style="height: 150px;">
-                    <p id="quote"></p>
-                    <span style="z-index:50;font-size:0.9em; font-weight: bold;">
+                    <p class="text-center" style="position: relative; top: 15px; font-style: italic;" id="quote"><br></p>
+                    <p id="author" class="text-center"></p>
+                    <span style="z-index:50;font-size:0.9em; font-weight: bold;"> 
                         <img src="https://theysaidso.com/branding/theysaidso.png" height="20" width="20" alt="theysaidso.com"/>
                         <a href="https://theysaidso.com" title="Powered by quotes from theysaidso.com" style="color: #ccc; margin-left: 4px; vertical-align: middle;">
                           They Said So®
                         </a>
                   </span>
+                  <p>
                 </div>
             </div>
-            <div class="row"></div>
+            <div class="row" style="height: 20px;"></div>
             <div class="row">
                 <div class="col dashboard-general dashboard-item2">
                     <div class="row" style="position: relative; top: 15px">
@@ -139,6 +145,6 @@
 <script>
     tickmark_task("circle", "picture", "task_description", "hide", "checked");
     submit("circle");
-    get_quote();
+    show_quote();
 </script>
 {% endblock %}

@@ -10,9 +10,11 @@ const get_quote_of_the_day = fetch("https://quotes.rest/qod", { method: "GET" })
   })
   .catch(error => {console.log('Error with fetching API', error)});
 
-const get_quote = async () => {
+const show_quote = async () => {
   const res = await get_quote_of_the_day;
   console.log(res);
   quote = document.getElementById("quote");
-  quote.innerHTML = res["contents"]["quotes"][0]["quote"]
-};
+  author = document.getElementById("author");
+  quote.innerHTML = "\"" + res["contents"]["quotes"][0]["quote"] + "\""
+  author.innerHTML = "- " + res["contents"]["quotes"][0]["author"]
+}
