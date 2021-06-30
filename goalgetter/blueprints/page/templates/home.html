@@ -8,7 +8,7 @@
 {% block body %}
 <section class="container my-5">
     <div class="row mt-5" style="height: 150px;">
-        <div class="col-6 dashboard-general dashboard-item1">
+        <div class="col-5 dashboard-general dashboard-item1">
             <div class="row">
                 <div class="col-7">
                     <div class="row">
@@ -27,11 +27,22 @@
                 </div>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-1">
+        </div>
+        <div class="col-6 dashboard-general dashboard-item3">
+            <p class="text-center lead" style="position: relative; top: 10px;">Milestones</p>
+            <div class="row">
+                <div class="col">
+                    <ul>
+                        <li>{{ current_milestones[0].name}}</li>
+                        <li>{{ current_milestones[1].name}}</li>
+                        <li>{{ current_milestones[2].name}}</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="row">
-    </div>
+    <div class="row"></div>
     <div class="row my-5">
         <div class="col-5 dashboard-general dashboard-item2">
             <div class="row" style="height: 100px;">
@@ -42,65 +53,65 @@
             <div class="row" style="position: relative; top: 20px;">
                 <div class="col">
                     <p class="lead text-center">Tasks to Complete</p>
-            {% if day|string in current_milestones[0].task.repeat_day or day|string in current_milestones[1].task.repeat_day or day|string in current_milestones[2].task.repeat_day %}
-                <ul>
-                    {% if day|string == current_milestones[0].task.repeat_day %}
-                    <li>
-                        <div class="row task_item">
-                            <div class="col-2">
-                                {{ render_checkboxes.render_task_checkbox(current_milestones[0].task.id) }}
-                            </div>
-                            <div class="col">
-                                <p class="task_description">{{ current_milestones[0].task.name }}</p>
+                    {% if day|string in current_milestones[0].task.repeat_day or day|string in current_milestones[1].task.repeat_day or day|string in current_milestones[2].task.repeat_day %}
+                        <ul>
+                            {% if day|string == current_milestones[0].task.repeat_day %}
+                                <li>
+                                    <div class="row task_item">
+                                        <div class="col-2">
+                                            {{ render_checkboxes.render_task_checkbox(current_milestones[0].task.id) }}
+                                        </div>
+                                        <div class="col">
+                                            <p class="task_description">{{ current_milestones[0].task.name }}</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            {% endif %}
+                            {% if day|string in current_milestones[1].task.repeat_day %}
+                                <li>
+                                    <div class="row task_item">
+                                        <div class="col-2">
+                                            {{ render_checkboxes.render_task_checkbox(current_milestones[1].task.id) }}
+                                        </div>
+                                        <div class="col">
+                                            <p class="task_description">{{ current_milestones[1].task.name }}</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            {% endif %}
+                            {% if day|string in current_milestones[2].task.repeat_day %}
+                                <li>
+                                    <div class="row task_item">
+                                        <div class="col-2">
+                                            {{ render_checkboxes.render_task_checkbox(current_milestones[2].task.id) }}
+                                        </div>
+                                        <div class="col">
+                                            <p class="task_description">{{ current_milestones[2].task.name }}</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    {% else %}
+                        <div class="row">
+                            <div class="col">   
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="text-center">
+                                            No tasks to do today!
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </li>
                     {% endif %}
-                    {% if day|string in current_milestones[1].task.repeat_day %}
-                    <li>
-                        <div class="row task_item">
-                            <div class="col-2">
-                                {{ render_checkboxes.render_task_checkbox(current_milestones[1].task.id) }}
-                            </div>
-                            <div class="col">
-                                <p class="task_description">{{ current_milestones[1].task.name }}</p>
-                            </div>
-                        </div>
-                    </li>
-                    {% endif %}
-                    {% if day|string in current_milestones[2].task.repeat_day %}
-                    <li>
-                        <div class="row task_item">
-                            <div class="col-2">
-                                {{ render_checkboxes.render_task_checkbox(current_milestones[2].task.id) }}
-                            </div>
-                            <div class="col">
-                                <p class="task_description">{{ current_milestones[2].task.name }}</p>
-                            </div>
-                        </div>
-                    </li>
-                    {% endif %}
-                </ul>
-            {% else %}
-            <div class="row">
-                <div class="col">   
-                    <div class="row">
-                        <div class="col">
-                            <p class="text-center">
-                                No tasks to do today!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endif %}
                 </div>
             </div>
         </div>
         <div class="col-1"></div>
         <div class="col-6">
             <div class="row dashboard-general dashboard-item2">
-                <div class="col" style="height: 150px;">
+                <div class="col text-wrap" style="height: 150px;">
                     <p class="text-center" style="position: relative; top: 15px; font-style: italic;" id="quote"><br></p>
                     <p id="author" class="text-center"></p>
                     <span style="z-index:50;font-size:0.9em; font-weight: bold;"> 
@@ -120,7 +131,7 @@
                             <p class="lead text-center">Your Values</p>
                         </div>
                     </div>
-                    <div class="row dashboard-item" style="position: relative; top: 15px; left: 30px;">
+                    <div class="row dashboard-item" style="position: relative; top: 15px; left: 30px;"> 
                         <div class="col" style="height: 150px; width: 200px;">
                             {{ render_value.render_value(value1.value) }}
                             <p class="lead">{{ value1.value.capitalize() }}</p>

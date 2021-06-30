@@ -13,8 +13,15 @@ function animation(cls, newClass1, newClass2) {
 
         items[i].addEventListener("mouseover", function(event) {
 
-            event.target.classList.toggle(newClass1);
-            event.target.classList.toggle(newClass2);
+            event.target.classList.add(newClass1);
+            event.target.classList.remove(newClass2);
+        
+        }, false);
+
+        items[i].addEventListener("mouseleave", function(event) {
+
+            event.target.classList.add(newClass2);
+            event.target.classList.remove(newClass1);
         
         }, false);
 

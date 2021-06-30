@@ -36,14 +36,13 @@ button:focus {
 
 .dashboard-item2 {
     background-color: #f1e0c5;
-    color: black;
+    color: gray;
 }
 
 .dashboard-item3 {
-    background-color: #496ddb;
+    background-color: #cdedfd;
 }
 
 body {
     font-family: Verdana, sans-serif;
-    background-color: #ffe8d6;
 }
