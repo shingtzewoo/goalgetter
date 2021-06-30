@@ -36,11 +36,12 @@ button:focus {
 
 .dashboard-item2 {
     background-color: #f1e0c5;
-    color: gray;
+    color: #736f72;
 }
 
 .dashboard-item3 {
     background-color: #cdedfd;
+    color: #736f72;
 }
 
 body {
