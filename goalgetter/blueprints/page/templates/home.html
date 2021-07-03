@@ -32,12 +32,15 @@
         <div class="col-6 dashboard-general dashboard-item3">
             <p class="text-center lead" style="position: relative; top: 10px;">Milestones</p>
             <div class="row">
-                <div class="col">
+                <div class="col-8">
                     <ul>
                         <li>{{ current_milestones[0].name}}</li>
                         <li>{{ current_milestones[1].name}}</li>
                         <li>{{ current_milestones[2].name}}</li>
                     </ul>
+                </div>
+                <div class="col-4">
+                    <img src="{{ url_for('static', filename='images/sun.png') }}" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600" class="img-fluid mx-auto" alt="weather icon made https://www.flaticon.com/authors/flat-icons Freepik" style="max-width: 70%; max-height: 70%; position: relative; left: 40px; bottom: 10px;">
                 </div>
             </div>
         </div>
@@ -54,7 +57,7 @@
                 <div class="col">
                     <p class="lead text-center">Tasks to Complete</p>
                     {% if day|string in current_milestones[0].task.repeat_day or day|string in current_milestones[1].task.repeat_day or day|string in current_milestones[2].task.repeat_day %}
-                        <ul>
+                        <ul data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600">
                             {% if day|string == current_milestones[0].task.repeat_day %}
                                 <li>
                                     <div class="row task_item">
@@ -97,7 +100,7 @@
                             <div class="col">   
                                 <div class="row">
                                     <div class="col">
-                                        <p class="text-center">
+                                        <p class="text-center" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600">
                                             No tasks to do today!
                                         </p>
                                     </div>
@@ -131,7 +134,7 @@
                             <p class="lead text-center">Your Values</p>
                         </div>
                     </div>
-                    <div class="row dashboard-item" style="position: relative; top: 15px; left: 30px;"> 
+                    <div class="row dashboard-item" style="position: relative; top: 15px; left: 30px;" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600"> 
                         <div class="col" style="height: 150px; width: 200px;">
                             {{ render_value.render_value(value1.value) }}
                             <p class="lead">{{ value1.value.capitalize() }}</p>
