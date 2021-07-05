@@ -9,36 +9,36 @@
 <section class="container my-5">
     <h2>Goals & Milestones</h2>
     <div class="row mt-3"></div>
-    <div class="row">
+    <div class="row" style="height: 3em;">
         <div class="col-8 dashboard-item1 dashboard-general">
-            <p class="lead">{{ value1.goal.name }}</p>
+            <p class="lead" style="position: relative; left: 30px; top: 7px;">{{ value1.goal.name }}</p>
         </div>
     </div>
-    <div class="row mb-5 mt-2 dashboard-item1 dashboard-general">
+    <div class="row mb-3 mt-2 dashboard-item1 dashboard-general">
         {{ milestones.render_milestones(value1)}}
-        <div class="col">
+        <div class="col d-flex" style="position: relative; top: 30px;">
             {{ render_value.render_value(value1.value) }}
         </div>
     </div>
-    <div class="row">
+    <div class="row" style="height: 3em;">
         <div class="col-8 dashboard-item2 dashboard-general">
-            <p class="lead">{{ value2.goal.name }}</p>
+            <p class="lead" style="position: relative; left: 30px; top: 7px;">{{ value2.goal.name }}</p>
         </div>
     </div>
-    <div class="row mb-5 mt-2 dashboard-item2 dashboard-general">
+    <div class="row mb-3 mt-2 dashboard-item2 dashboard-general">
         {{ milestones.render_milestones(value2)}}
-        <div class="col">
+        <div class="col d-flex" style="position: relative; top: 30px;">
             {{ render_value.render_value(value2.value) }}
         </div>
     </div>
-    <div class="row">
+    <div class="row" style="height: 3em;">
         <div class="col-8 dashboard-item3 dashboard-general">
-            <p class="lead">{{ value3.goal.name }}</p>
+            <p class="lead" style="position: relative; left: 30px; top: 7px;">{{ value3.goal.name }}</p>
         </div>
     </div>
-    <div class="row mb-5 mt-2 dashboard-item3 dashboard-general">
+    <div class="row mb-3 mt-2 dashboard-item3 dashboard-general">
         {{ milestones.render_milestones(value3)}}
-        <div class="col">
+        <div class="col d-flex" style="position: relative; top: 30px;">
             {{ render_value.render_value(value3.value) }}
         </div>
     </div>

@@ -1,7 +1,7 @@
 {# Render checkbox for the image checkboxes for the values questionnaire. #}
 {%- macro render_milestones(value) -%}
     <div class="col-md">
-        <p class="lead">Milestones</p>
+        <p class="lead" style="position: relative; left: 30px;  top: 7px;">Milestones</p>
         <ul>
             {%- for milestone in value.goal.milestone %}
                 <li>{{ milestone.name}}</li>
@@ -9,7 +9,7 @@
         </ul>
     </div>
     <div class="col-md">
-        <p class="lead">Start Dates</p>
+        <p class="lead" style="position: relative; left: 30px;  top: 7px;">Start Dates</p>
         <ul>
             {%- for milestone in value.goal.milestone %}
                 <li>{{ milestone.startdate | string | truncate(13) }}</li>
@@ -17,7 +17,7 @@
         </ul>
     </div>
     <div class="col-md">
-        <p class="lead">End Dates</p>
+        <p class="lead" style="position: relative; left: 30px;  top: 7px;">End Dates</p>
         <ul>
             {%- for milestone in value.goal.milestone %}
                 <li>{{ milestone.enddate | string | truncate(13) }}</li>
