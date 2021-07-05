@@ -5,6 +5,11 @@ from functools import wraps
 from flask import request
 
 def questionnaire_reroute(f):
+
+    '''
+    Wrapper function for routes that redirects user if they have not or already completed the questionnaire
+    '''
+    
     @wraps(f)
     def decorated_function(*args, **kwargs):
         messages = {
