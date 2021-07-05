@@ -1,32 +1,45 @@
+{% import 'macros/render_value.html' as render_value with context %}
+{% import 'macros/render_milestones.html' as milestones with context %}
 {% extends 'layouts/app.html' %}
 
 {% block title %}Goals{% endblock %}
 {% block meta_description %}Your goals, milestones, achievements, and timeline{% endblock %}
 
 {% block body %}
-<div class="row">
-    <div class="col">Milestone 1</div>
-    <div class="col">Description 1</div>
-    <div class="col">Deadline</div>
-</div>
-<div class="row">
-    <div class="col">Milestone 2</div>
-    <div class="col">Description 2</div>
-    <div class="col">Deadline</div>
-</div>
-<div class="row">
-    <div class="col">Milestone 3</div>
-    <div class="col">Description 3</div>
-    <div class="col">Deadline</div>
-</div>
-<div class="row">
-    <div class="col">Milestone 4</div>
-    <div class="col">Description 4</div>
-    <div class="col">Deadline</div>
-</div>
-<div class="row">
-    <div class="col">Milestone 5</div>
-    <div class="col">Description 5</div>
-    <div class="col">Deadline</div>
-</div>
+<section class="container my-5">
+    <h2>Goals & Milestones</h2>
+    <div class="row mt-3"></div>
+    <div class="row">
+        <div class="col-8 dashboard-item1 dashboard-general">
+            <p class="lead">{{ value1.goal.name }}</p>
+        </div>
+    </div>
+    <div class="row mb-5 mt-2 dashboard-item1 dashboard-general">
+        {{ milestones.render_milestones(value1)}}
+        <div class="col">
+            {{ render_value.render_value(value1.value) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8 dashboard-item2 dashboard-general">
+            <p class="lead">{{ value2.goal.name }}</p>
+        </div>
+    </div>
+    <div class="row mb-5 mt-2 dashboard-item2 dashboard-general">
+        {{ milestones.render_milestones(value2)}}
+        <div class="col">
+            {{ render_value.render_value(value2.value) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8 dashboard-item3 dashboard-general">
+            <p class="lead">{{ value3.goal.name }}</p>
+        </div>
+    </div>
+    <div class="row mb-5 mt-2 dashboard-item3 dashboard-general">
+        {{ milestones.render_milestones(value3)}}
+        <div class="col">
+            {{ render_value.render_value(value3.value) }}
+        </div>
+    </div>
 {% endblock %}

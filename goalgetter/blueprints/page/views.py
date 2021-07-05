@@ -22,7 +22,7 @@ def home():
 @login_required
 def goals():
     return render_template('goals.html', value1=current_user.values[0], value2=current_user.values[1], value3=current_user.values[2], 
-                            current_milestones=Milestone.query_by_date(date.today()), day=date.today().weekday())
+                            day=date.today().weekday())
 
 @page.route('/journal')
 @login_required
