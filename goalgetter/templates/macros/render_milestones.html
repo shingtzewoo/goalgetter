@@ -1,0 +1,27 @@
+{# Render checkbox for the image checkboxes for the values questionnaire. #}
+{%- macro render_milestones(value) -%}
+    <div class="col-md">
+        <p class="lead">Milestones</p>
+        <ul>
+            {%- for milestone in value.goal.milestone %}
+                <li>{{ milestone.name}}</li>
+            {%- endfor %}
+        </ul>
+    </div>
+    <div class="col-md">
+        <p class="lead">Start Dates</p>
+        <ul>
+            {%- for milestone in value.goal.milestone %}
+                <li>{{ milestone.startdate | string | truncate(13) }}</li>
+            {%- endfor %}
+        </ul>
+    </div>
+    <div class="col-md">
+        <p class="lead">End Dates</p>
+        <ul>
+            {%- for milestone in value.goal.milestone %}
+                <li>{{ milestone.enddate | string | truncate(13) }}</li>
+            {%- endfor %}
+        </ul>
+    </div>
+{%- endmacro -%}
