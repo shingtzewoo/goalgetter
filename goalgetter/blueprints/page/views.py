@@ -3,10 +3,12 @@ from flask_login import login_required, current_user
 from datetime import *
 from dateutil.relativedelta import *
 from goalgetter.blueprints.goals.models.milestones import Milestone
+from lib.route_logic import questionnaire_reroute 
 
 page = Blueprint('page', __name__, template_folder='templates')
 
 @page.route('/home', methods=['GET', 'POST'])
+@questionnaire_reroute
 @login_required
 def home():
     if request.method == "POST":
@@ -19,6 +21,7 @@ def home():
                             current_milestones=Milestone.query_by_date(date.today()), day=date.today().weekday())
 
 @page.route('/goals')
+@questionnaire_reroute
 @login_required
 def goals():
     return render_template('goals.html', value1=current_user.values[0], value2=current_user.values[1], value3=current_user.values[2], 

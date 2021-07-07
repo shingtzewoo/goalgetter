@@ -14,26 +14,24 @@
         
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-                {% if current_user.is_authenticated %} <!-- and current_user.is_complete  -->
+                {% if current_user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('page.home') }}">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('page.goals') }}">Goals</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- 
+                        <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('page.journal') }}">Journal</a>
-                    </li>
+                        </li> 
+                    -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                           Profile
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Account</a></li>
-                            <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="#">Settings</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Support</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="{{ url_for('user.logout') }}">Logout</a></li>
                         </ul>

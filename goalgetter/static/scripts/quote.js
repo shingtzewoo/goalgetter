@@ -16,5 +16,6 @@ const show_quote = async () => {
   quote = document.getElementById("quote");
   author = document.getElementById("author");
   quote.innerHTML = "\"" + res["contents"]["quotes"][0]["quote"] + "\""
-  author.innerHTML = "- " + res["contents"]["quotes"][0]["author"]
+  original = author.innerHTML
+  author.innerHTML = res["contents"]["quotes"][0]["author"] + " " + original
 }

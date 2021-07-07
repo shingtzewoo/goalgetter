@@ -27,28 +27,49 @@
     </div>
 </section>
 <section class="row d-flex">
-    <div class="col col-*">
+    <div class="col">
         <form method="POST" action="{{ url_for('goals.values')}}">
-            <div class="row" style="height: 150px">
-                {{ render_checkboxes.render_checkbox("authentic", "Stay true to yourself no matter what", render_value.render_value('authentic')) }}
-                {{ render_checkboxes.render_checkbox("adventure", "Unknown and thrills are something you crave", render_value.render_value('adventure')) }}
-                {{ render_checkboxes.render_checkbox("balance", "Belief that balance is important", render_value.render_value('balance')) }}
-                {{ render_checkboxes.render_checkbox("honesty", "No matter how much the truth hurts, it is better than lying.", render_value.render_value('honesty')) }}
-                {{ render_checkboxes.render_checkbox("courage", "Move forward even if you're scared", render_value.render_value('courage')) }}
+            <div class="row">
+                <div class="col-lg mb-3">
+                    <div class="row">
+                        {{ render_checkboxes.render_checkbox("authentic", "Stay true to yourself no matter what", render_value.render_value('authentic')) }}
+                        {{ render_checkboxes.render_checkbox("adventure", "The unknown is something you crave", render_value.render_value('adventure')) }}
+                        
+                    </div>
+                </div>
+                <div class="col-lg mb-3">
+                    <div class="row">
+                        {{ render_checkboxes.render_checkbox("balance", "Belief that balance is important", render_value.render_value('balance')) }}
+                        {{ render_checkboxes.render_checkbox("honesty", "No matter how much the truth hurts, it is better than lying.", render_value.render_value('honesty')) }}
+                    </div>
+                </div>
+                <div class="col-lg mb-3">
+                    <div class="row">
+                        {{ render_checkboxes.render_checkbox("courage", "Move forward even if you're scared", render_value.render_value('courage')) }}
+                        {{ render_checkboxes.render_checkbox("compassion", "Do unto others as you would have them do unto you", render_value.render_value('compassion')) }}
+                    </div>
+                </div>
             </div>
-            <div class="row" style="height: 150px">
-                {{ render_checkboxes.render_checkbox("compassion", "Do unto others as you would have them do unto you", render_value.render_value('compassion')) }}
-                {{ render_checkboxes.render_checkbox("positivity", "You don't let anything get you down", render_value.render_value('positivity')) }}
-                {{ render_checkboxes.render_checkbox("freedom", "You live your life by your rules", render_value.render_value('freedom')) }}
-                {{ render_checkboxes.render_checkbox("curiosity", "Your questions never end", render_value.render_value('curiosity')) }}
-                {{ render_checkboxes.render_checkbox("creativity", "New ideas are your bread and butter", render_value.render_value('creativity')) }}
-            </div>
-            <div class="row" style="height: 150px">
-                {{ render_checkboxes.render_checkbox("friendship", "Loved ones are one of the most important things in your life", render_value.render_value('friendship')) }}
-                {{ render_checkboxes.render_checkbox("growth", "The want to be the best version of yourself", render_value.render_value('growth')) }}
-                {{ render_checkboxes.render_checkbox("knowledge", "Knowing and understanding more is something you seek", render_value.render_value('knowledge')) }}
-                {{ render_checkboxes.render_checkbox("peace", "Dislike conflict and always try to prevent it", render_value.render_value('peace')) }}
-                {{ render_checkboxes.render_checkbox("responsibility", "Accountability is important to you", render_value.render_value('responsibility')) }}
+            <div class="row">
+                <div class="col-lg mb-3">
+                    <div class="row">
+                        {{ render_checkboxes.render_checkbox("positivity", "You don't let anything get you down", render_value.render_value('positivity')) }}
+                        {{ render_checkboxes.render_checkbox("curiosity", "Your questions never end", render_value.render_value('curiosity')) }}
+                        
+                    </div>
+                </div>
+                <div class="col-lg mb-3">
+                    <div class="row">
+                        {{ render_checkboxes.render_checkbox("creativity", "New ideas are your bread and butter", render_value.render_value('creativity')) }}
+                        {{ render_checkboxes.render_checkbox("growth", "The want to be the best version of yourself", render_value.render_value('growth')) }}
+                    </div>
+                </div>
+                <div class="col-lg mb-3">
+                    <div class="row">
+                        {{ render_checkboxes.render_checkbox("peace", "Dislike conflict and always try to prevent it", render_value.render_value('peace')) }}
+                        {{ render_checkboxes.render_checkbox("responsibility", "Accountability is important to you", render_value.render_value('responsibility')) }}
+                    </div>
+                </div>
             </div>
             <div class="row mt-5" style="height: 150px">
                 <button type="submit" style="height: 50px" class="btn btn-light mx-auto">Continue</button>
