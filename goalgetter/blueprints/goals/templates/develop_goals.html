@@ -5,7 +5,7 @@
 {% block meta_description %}Find out more about your true self.{% endblock %}
 
 {% block body %}
-<section class="row">
+<section class="row mb-5">
     <div class="col d-flex flex-column justify-content-center" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600">
         <h1 class="text-center">Value based goal setting</h1>
         <p class="text-center lead">
@@ -17,7 +17,7 @@
         </p>
     </div>
 </section>
-<section class="row">
+<section class="row mb-5">
     <div class="col d-flex flex-column justify-content-center" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600">
         <h1 class="text-center">Make sure your goals are SMART</h1>
         <p class="text-center lead">
@@ -37,30 +37,30 @@
 <section class="row d-flex">
     <div class="col">
         <form method="POST" action="{{ url_for('goals.goal')}}">
-            <div class="row my-3 animate__animated" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600" style="height: 150px">
-                <div class="col-4">
-                {{ render.render_value(value1) }}
-                <h1>{{ value1.capitalize() }}</h1>
+            <div class="row my-3 animate__animated" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600">
+                <div class="col-md-4">
+                    {{ render.render_value(value1) }}
+                    <h2>{{ value1.capitalize() }}</h2>
                 </div>
-                <div class="col d-flex align-items-center form-group">
+                <div class="col-md d-flex align-items-center form-group">
                     <textarea name="{{value1}}" class="form-control" required></textarea>
                 </div>
             </div>
-            <div class="row my-3 animate__animated" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600" style="height: 150px">
-                <div class="col-4">
+            <div class="row my-3 animate__animated" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600">
+                <div class="col-md-4">
                     {{ render.render_value(value2) }}
-                    <h1>{{ value2.capitalize() }}</h1>
+                    <h2>{{ value2.capitalize() }}</h2>
                 </div>
-                <div class="col d-flex align-items-center form-group">
+                <div class="col-md d-flex align-items-center form-group">
                     <textarea name="{{value2}}" class="form-control" required></textarea>
                 </div>
             </div>
-            <div class="row my-3 animate__animated" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600" style="height: 150px">
-                <div class="col-4">
+            <div class="row my-3 animate__animated" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600">
+                <div class="col-md-4">
                     {{ render.render_value(value3) }}
-                    <h1>{{ value3.capitalize() }}</h1>
+                    <h2>{{ value3.capitalize() }}</h2>
                 </div>
-                <div class="col d-flex align-items-center form-group">
+                <div class="col-md d-flex align-items-center form-group">
                     <textarea name="{{value3}}" class="form-control" required></textarea>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-{# Render checkbox for the image checkboxes for the values questionnaire. #}
+{# Showcase the user's milestones for each goal #}
 {%- macro render_milestones(value) -%}
     <div class="col-md">
         <p class="lead" style="position: relative; left: 30px;  top: 7px;">Milestones</p>
@@ -24,4 +24,45 @@
             {%- endfor %}
         </ul>
     </div>
+{%- endmacro -%}
+
+{# Render the milestones section of the questionnaire #}
+{%- macro render_milestones_questionnaire(goal) -%}
+<div class="row my-3 animate__animated" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600">
+    <div class="col-lg-4 d-flex align-items-center justify-content-center">
+        <p class="lead">{{ goal.name }}</p>
+    </div>
+    <div class="col-lg mb-3">
+        <div class="row">
+            <div class="col-sm mb-3">
+                <div class="row mb-3 form-group" style="height: 30px">
+                    <label for="milestone1" class="col-sm-3 col-form-label">First milestone:</label>
+                    <div class="col-sm" id="milestone1">
+                        <input type="textarea" class="form-control" name="{{ goal.id }}" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm mb-3">
+                <div class="row form-group" style="height: 30px">
+                    <label for="milestone2" class="col-sm-3 col-form-label">Second milestone:</label>
+                    <div class="col-sm" id="milestone2">
+                        <input type="textarea" class="form-control" name="{{ goal.id }}" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm mb-3">
+                <div class="row form-group" style="height: 30px">
+                    <label for="milestone3" class="col-sm-3 col-form-label">Third milestone:</label>
+                    <div class="col-sm" id="milestone3">
+                        <input type="textarea" class="form-control" name="{{ goal.id }}" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {%- endmacro -%}

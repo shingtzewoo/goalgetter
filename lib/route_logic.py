@@ -29,7 +29,7 @@ def questionnaire_reroute(f):
                 flash(messages.get(current_user.is_complete()), "danger")
                 return redirect(url_for(corrected_routes.get(current_user.is_complete())))
         else:
-            if url_for(corrected_routes.get(current_user.is_complete())) == request.path:
+            if url_for(corrected_routes.get(0)) == request.path or url_for(corrected_routes.get(1)) == request.path or url_for(corrected_routes.get(2)) == request.path or url_for(corrected_routes.get(3)) == request.path:
                 flash("You have already completed the questionnaire", "danger")
                 return redirect(url_for("page.home"))
         return f(*args, **kwargs)

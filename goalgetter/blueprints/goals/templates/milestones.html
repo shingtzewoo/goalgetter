@@ -1,3 +1,4 @@
+{% import 'macros/render_milestones.html' as render with context %}
 {% extends 'layouts/app.html' %}
 
 {% block title %}Milestones{% endblock %}
@@ -26,117 +27,9 @@
 <section class="row d-flex"">
     <div class="container">
         <form method="POST" action="{{ url_for('goals.milestones')}}">
-            <div class="row my-3 animate__animated" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600">
-                <div class="col-lg-4 d-flex align-items-center justify-content-center">
-                    <p class="lead">{{ goal1.name }}</p>
-                </div>
-                <div class="col-lg mb-3">
-                    <div class="row">
-                        <div class="col-sm mb-3">
-                            <div class="row mb-3 form-group" style="height: 30px">
-                                <label for="milestone1" class="col-sm-3 col-form-label">First milestone:</label>
-                                <div class="col-sm" id="milestone1">
-                                    <input type="textarea" class="form-control" name="{{ goal1.id }}" required>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm mb-3">
-                            <div class="row form-group" style="height: 30px">
-                                <label for="milestone2" class="col-sm-3 col-form-label">Second milestone:</label>
-                                <div class="col-sm" id="milestone2">
-                                    <input type="textarea" class="form-control" name="{{ goal1.id }}" required>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm mb-3">
-                            <div class="row form-group" style="height: 30px">
-                                <label for="milestone3" class="col-sm-3 col-form-label">Third milestone:</label>
-                                <div class="col-sm" id="milestone3">
-                                    <input type="textarea" class="form-control" name="{{ goal1.id }}" required>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row my-3 animate__animated" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600">
-                <div class="col-lg-4 d-flex align-items-center justify-content-center">
-                    <p class="lead">{{ goal2.name }}</p>
-                </div>
-                <div class="col-lg mb-3">
-                    <div class="row">
-                        <div class="col-sm mb-3">
-                            <div class="row mb-3 form-group" style="height: 30px">
-                                <label for="milestone1" class="col-sm-3 col-form-label">First milestone:</label>
-                                <div class="col-sm" id="milestone1">
-                                    <input type="textarea" class="form-control" name="{{ goal2.id }}" required>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm mb-3">
-                            <div class="row form-group" style="height: 30px">
-                                <label for="milestone2" class="col-sm-3 col-form-label">Second milestone:</label>
-                                <div class="col-sm" id="milestone2">
-                                    <input type="textarea" class="form-control" name="{{ goal2.id }}" required>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm mb-3">
-                            <div class="row form-group" style="height: 30px">
-                                <label for="milestone3" class="col-sm-3 col-form-label">Third milestone:</label>
-                                <div class="col-sm" id="milestone3">
-                                    <input type="textarea" class="form-control" name="{{ goal2.id }}" required>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row my-3 animate__animated" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600">
-                <div class="col-lg-4 d-flex align-items-center justify-content-center">
-                    <p class="lead">{{ goal3.name }}</p>
-                </div>
-                <div class="col-lg mb-3">
-                    <div class="row">
-                        <div class="col-sm mb-3">
-                            <div class="row mb-3 form-group" style="height: 30px">
-                                <label for="milestone1" class="col-sm-3 col-form-label">First milestone:</label>
-                                <div class="col-sm" id="milestone1">
-                                    <input type="textarea" class="form-control" name="{{ goal3.id }}" required>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm mb-3">
-                            <div class="row form-group" style="height: 30px">
-                                <label for="milestone2" class="col-sm-3 col-form-label">Second milestone:</label>
-                                <div class="col-sm" id="milestone2">
-                                    <input type="textarea" class="form-control" name="{{ goal3.id }}" required>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm mb-3">
-                            <div class="row form-group" style="height: 30px">
-                                <label for="milestone3" class="col-sm-3 col-form-label">Third milestone:</label>
-                                <div class="col-sm" id="milestone3">
-                                    <input type="textarea" class="form-control" name="{{ goal3.id }}" required>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {{ render.render_milestones_questionnaire(goal1) }}
+            {{ render.render_milestones_questionnaire(goal2) }}
+            {{ render.render_milestones_questionnaire(goal3) }}
             <div class="row mt-5" style="height: 130px">
                 <button type="submit" style="height: 50px" class="btn btn-light mx-auto">Continue</button>
             </div>

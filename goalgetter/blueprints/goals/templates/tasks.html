@@ -16,12 +16,12 @@
     </div>
 </section>
 <form method="POST" action="{{ url_for('goals.tasks')}}">
-    <section class="container my-3" style="height: 500px">
+    <section class="container my-3" style="height: auto;">
         <div class="row d-flex d-flex animate__animated" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600">
-            <div class="col-4 d-flex justify-content-center">
+            <div class="col-sm-4 d-flex justify-content-center">
                 <img src="{{ url_for('static', filename='images/beginning.png') }}" class="img-fluid mx-auto" alt="Startup icon made by https://www.flaticon.com/authors/flat-icons Freepik" style="max-width: 50%; max-height: 50%">
             </div>
-            <div class="col">
+            <div class="col-sm">
                 <h1>First Milestones</h1>
                 <p class="lead">A journey only begins once you take the first step</p>
             </div>
@@ -47,7 +47,7 @@
                 {{ render_task_section.render_textinput(value2, 0) }}
                 {{ render_task_section.render_textinput(value3, 0) }}
             </div>
-            <div class="col form-group">
+            <div class="col-md form-group">
                 <div class="row">
                     <div class="col">
                         <p class="lead font-weight-bold">Schedule</p>
@@ -57,9 +57,9 @@
                 {{ render_task_section.render_schedule(value2, 0) }}
                 {{ render_task_section.render_schedule(value3, 0) }}
             </div>
-            <div class="col form-group">
+            <div class="col-md form-group">
                 <div class="row">
-                    <div class="col">
+                    <div class="col-sm">
                         <p class="lead font-weight-bold">Day</p>
                     </div>
                 </div>
@@ -68,12 +68,12 @@
                 {{ render_task_section.render_day(value3, 0) }}
             </div>
     </section>
-    <section class="container" style="height: 500px">
+    <section class="container" style="height: auto;">
         <div class="row d-flex d-flex animate__animated" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600">
-            <div class="col-4 d-flex justify-content-center">
+            <div class="col-sm-4 d-flex justify-content-center">
                 <img src="{{ url_for('static', filename='images/sun.png') }}" class="img-fluid mx-auto" alt="weather icon made https://www.flaticon.com/authors/flat-icons Freepik" style="max-width: 50%; max-height: 50%">
             </div>
-            <div class="col">
+            <div class="col-sm">
                 <h1>Second Milestones</h1>
                 <p class="lead">Enjoy every part of the process</p>
             </div>
@@ -99,7 +99,7 @@
                 {{ render_task_section.render_textinput(value2, 1) }}
                 {{ render_task_section.render_textinput(value3, 1) }}
             </div>
-            <div class="col form-group">
+            <div class="col-md form-group">
                 <div class="row">
                     <div class="col">
                         <p class="lead font-weight-bold">Schedule</p>
@@ -109,7 +109,7 @@
                 {{ render_task_section.render_schedule(value2, 1) }}
                 {{ render_task_section.render_schedule(value3, 1) }}
             </div>
-            <div class="col form-group">
+            <div class="col-md form-group">
                 <div class="row">
                     <div class="col">
                         <p class="lead font-weight-bold">Day</p>
@@ -120,12 +120,12 @@
                 {{ render_task_section.render_day(value3, 1) }}
             </div>
     </section>
-    <section class="container" style="height: 500px">
+    <section class="container" style="height: auto;">
         <div class="row d-flex d-flex animate__animated" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600">
-            <div class="col-4 d-flex justify-content-center">
+            <div class="col-sm-4 d-flex justify-content-center">
                 <img src="{{ url_for('static', filename='images/achievement.png') }}" class="img-fluid mx-auto" alt="weather icon made https://www.flaticon.com/authors/flat-icons Freepik" style="max-width: 50%; max-height: 50%">
             </div>
-            <div class="col">
+            <div class="col-sm">
                 <h1>Third Milestones</h1>
                 <p class="lead">Finish strong</p>
             </div>
@@ -151,7 +151,7 @@
                 {{ render_task_section.render_textinput(value2, 2) }}
                 {{ render_task_section.render_textinput(value3, 2) }}
             </div>
-            <div class="col form-group">
+            <div class="col-md form-group">
                 <div class="row">
                     <div class="col">
                         <p class="lead font-weight-bold">Schedule</p>
@@ -161,7 +161,7 @@
                 {{ render_task_section.render_schedule(value2, 2) }}
                 {{ render_task_section.render_schedule(value3, 2) }}
             </div>
-            <div class="col form-group">
+            <div class="col-md form-group">
                 <div class="row">
                     <div class="col">
                         <p class="lead font-weight-bold">Day</p>
