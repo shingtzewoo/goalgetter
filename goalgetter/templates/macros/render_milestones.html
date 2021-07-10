@@ -2,13 +2,13 @@
 {%- macro render_milestones(value) -%}
     <div class="col">
         <div class="row">
-            <div class="col d-flex justify-content-center">
+            <div class="col d-flex justify-content-start">
                 <p class="lead" style="position: relative; top: 7px;">Milestones</p>
             </div>
         </div>
         <div class="row">
-            <div class="col d-flex justify-content-center">
-                <ul style="position: relative; right: 70px;">
+            <div class="col d-flex justify-content-start">
+                <ul style="position: relative; right: 40px;">
                     {%- for milestone in value.goal.milestone %}
                         <li>{{ milestone.name}}</li>
                     {%- endfor %}
@@ -18,13 +18,13 @@
     </div>
     <div class="col-sm">
         <div class="row">
-            <div class="col d-flex justify-content-center">
+            <div class="col d-flex justify-content-start">
                 <p class="lead" style="position: relative; top: 7px;">Start Dates</p>
             </div>
         </div>
         <div class="row">
-            <div class="col d-flex justify-content-center">
-                <ul style="position: relative; right: 20px;">
+            <div class="col d-flex justify-content-start">
+                <ul style="position: relative; right: 40px;">
                     {%- for milestone in value.goal.milestone %}
                         <li>{{ milestone.startdate | string | truncate(13) }}</li>
                     {%- endfor %}
@@ -34,13 +34,13 @@
     </div>
     <div class="col">
         <div class="row">
-            <div class="col d-flex justify-content-center">
+            <div class="col d-flex justify-content-start">
                 <p class="lead" style="position: relative; top: 7px;">End Dates</p>
             </div>
         </div>
         <div class="row">
-            <div class="col d-flex justify-content-center">
-                <ul style="position: relative; right: 20px;">
+            <div class="col d-flex justify-content-start">
+                <ul style="position: relative; right: 40px;">
                     {%- for milestone in value.goal.milestone %}
                         <li>{{ milestone.enddate | string | truncate(13) }}</li>
                     {%- endfor %}
