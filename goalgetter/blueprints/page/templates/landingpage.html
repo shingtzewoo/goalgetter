@@ -4,19 +4,28 @@
 {% block meta_description %}Goalgetter helps you achieve goals and becomne your best self at a pace you can handle. We believe in the developing a sustainable process behind goalsetting.{% endblock %}
 
 {% block body %}
-<div class="row flex-column">
-    <img src="{{ url_for('static', filename='images/journal.png') }}" class="img-fluid mx-auto" 
-        width="229" height="50" 
-        alt="Picture of a journal and a pen made by https://www.freepik.com available on https://www.flaticon.com/">
-    <h2 class="mx-auto">Achieve at your own pace.</h2>
-    <p class="mx-auto lead">Be your best self.</p>
-</div>
-<div class="row flex-column">
-    <h2 class="mx-auto">Accomplish goals you set for yourself.</h2>
-    <p class="mx-auto lead">Goalgetter helps you take big goals and break them down into achieveable chunks.</p>
-</div>
-<div class="row flex-column">
-    <h2 class="mx-auto">Understand yourself and your process better.</h2>
-    <p class="mx-auto lead">Reflect and refine your process. We believe that the process is what leads to the best outcomes.</p>
-</div>
+<section class="row my-5">
+    <div class="col d-flex">
+        <h2 class="mx-auto text-center">Make your annual goals
+            <br> more systematic and achievable
+        </h2>
+    </div>
+</section>
+<section class="row">
+    <div class="col d-flex flex-column justify-content-center">
+        <h2 class="text-center">Discover your core values</h2>
+        <p class="lead text-center">
+            Regain confidence in yourself by
+            <br> understanding more about yourself
+        </p>
+    </div>
+</section>
+<section class="row">
+    <div class="col d-flex flex-column justify-content-center">
+        <h2 class="text-center">Process matters</h2>
+        <p class="lead text-center">Refine your proces
+            <br> achieve your goals
+        </p>
+    </div>
+</section>
 {% endblock %}
