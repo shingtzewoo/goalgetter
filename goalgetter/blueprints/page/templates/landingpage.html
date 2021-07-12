@@ -4,28 +4,48 @@
 {% block meta_description %}Goalgetter helps you achieve goals and becomne your best self at a pace you can handle. We believe in the developing a sustainable process behind goalsetting.{% endblock %}
 
 {% block body %}
-<section class="row my-5">
-    <div class="col d-flex">
+<section class="row mt-5" style="height: auto;">
+    <div class="col d-flex flex-column">
         <h2 class="mx-auto text-center">Make your annual goals
             <br> more systematic and achievable
         </h2>
+    <div class="row">
+        <div class="col d-flex">
+            <img src="{{ url_for('static', filename='images/pixeltrue-vision-1.png') }}" alt=" Illustration by https://icons8.com/illustrations/author/5ec7b0e101d0360016f3d1b3 Pixeltrue from https://icons8.com/illustrations Ouch!" class="img-fluid mx-auto" style="position: relative; top: 10px; max-width: 70%; max-height: 70%">
+        </div>
+    </div>
     </div>
 </section>
-<section class="row">
+<section class="row mb-5" style="background-color: #ffe8d6;" style="height: auto;">
     <div class="col d-flex flex-column justify-content-center">
-        <h2 class="text-center">Discover your core values</h2>
-        <p class="lead text-center">
-            Regain confidence in yourself by
+        <h2 class="text-center" style="position: relative; top: 10px;">Discover your core values</h2>
+        <p class="lead text-center" style="position: relative; top: 10px;">
+            Gain confidence by
             <br> understanding more about yourself
         </p>
     </div>
+    <div class="row">
+        <div class="col d-flex">
+            <img src="{{ url_for('static', filename='images/pixeltrue-space-discovery-1.png') }}" alt=" Illustration by https://icons8.com/illustrations/author/5ec7b0e101d0360016f3d1b3 Pixeltrue from https://icons8.com/illustrations Ouch!" class="img-fluid mx-auto"  style="position: relative; top: 10px; max-width: 70%; max-height: 70%">
+        </div>
+    </div>
 </section>
-<section class="row">
+<section class="row" style="height: auto;">
     <div class="col d-flex flex-column justify-content-center">
         <h2 class="text-center">Process matters</h2>
         <p class="lead text-center">Refine your proces
             <br> achieve your goals
         </p>
     </div>
+    <div class="row">
+        <div class="col d-flex">
+            <img src="{{ url_for('static', filename='images/pixeltrue-plan-1.png') }}" alt=" Illustration by https://icons8.com/illustrations/author/5ec7b0e101d0360016f3d1b3 Pixeltrue from https://icons8.com/illustrations Ouch!" class="img-fluid mx-auto" style="position: relative; top: 10px; max-width: 70%; max-height: 70%">
+        </div>
+    </div>
+</section>
+<section class="row mb-3 d-flex justify-content-center" style="height: auto;">
+    <form method="POST" action="{{ url_for('user.signup')}}">
+        <button type="submit" style="height: 50px" class="btn btn-light mx-auto">Get Started</button>
+    </form>
 </section>
 {% endblock %}

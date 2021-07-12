@@ -6,40 +6,49 @@
 {% block meta_description %}Your goals, milestones, achievements, and timeline{% endblock %}
 
 {% block body %}
-<section class="container my-5">
-    <h2>Goals & Milestones</h2>
-    <div class="row mt-3"></div>
-    <div class="row">
-        <div class="col d-flex justify-content-center dashboard-item1 dashboard-general">
-            <p class="lead" style="position: relative; top: 7px;">{{ value1.goal.name }}</p>
+<section class="row my-5">
+    <div class="col">
+        <div class="row">
+            <div class="col-sm d-flex justify-content-center align-items-center">
+                <h2>Goals & Milestones</h2>
+            </div>
+            <div class="col-sm d-flex justify-content-center align-items-center">
+                <img src="{{ url_for('static', filename='images/pixeltrue-location-1.png') }}" alt=" Illustration by https://icons8.com/illustrations/author/5ec7b0e101d0360016f3d1b3 Pixeltrue from https://icons8.com/illustrations Ouch!" class="img-fluid mx-auto"  style="position: relative; top: 10px; max-width: 100%; max-height: 100%">
+            </div>
         </div>
-    </div>
-    <div class="row mb-3 mt-2 dashboard-item1 dashboard-general">
-        {{ milestones.render_milestones(value1)}}
-        <div class="col-lg d-flex justify-content-center" style="position: relative; top: 30px;">
-            {{ render_value.render_value(value1.value) }}
+        <div class="row mt-3"></div>
+        <div class="row">
+            <div class="col d-flex justify-content-center dashboard-item1 dashboard-general">
+                <p class="lead" style="position: relative; top: 7px;">{{ value1.goal.name }}</p>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col d-flex justify-content-center dashboard-item2 dashboard-general">
-            <p class="lead" style="position: relative; top: 7px;">{{ value2.goal.name }}</p>
+        <div class="row mb-3 mt-2 dashboard-item1 dashboard-general">
+            {{ milestones.render_milestones(value1)}}
+            <div class="col-lg d-flex justify-content-center" style="position: relative; top: 30px;">
+                {{ render_value.render_value(value1.value) }}
+            </div>
         </div>
-    </div>
-    <div class="row mb-3 mt-2 dashboard-item2 dashboard-general">
-        {{ milestones.render_milestones(value2)}}
-        <div class="col-lg d-flex justify-content-center" style="position: relative; top: 30px;">
-            {{ render_value.render_value(value2.value) }}
+        <div class="row">
+            <div class="col d-flex justify-content-center dashboard-item2 dashboard-general">
+                <p class="lead" style="position: relative; top: 7px;">{{ value2.goal.name }}</p>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col d-flex justify-content-center dashboard-item3 dashboard-general">
-            <p class="lead" style="position: relative; top: 7px;">{{ value3.goal.name }}</p>
+        <div class="row mb-3 mt-2 dashboard-item2 dashboard-general">
+            {{ milestones.render_milestones(value2)}}
+            <div class="col-lg d-flex justify-content-center" style="position: relative; top: 30px;">
+                {{ render_value.render_value(value2.value) }}
+            </div>
         </div>
-    </div>
-    <div class="row mb-3 mt-2 dashboard-item3 dashboard-general">
-        {{ milestones.render_milestones(value3)}}
-        <div class="col-lg d-flex justify-content-center" style="position: relative; top: 30px;">
-            {{ render_value.render_value(value3.value) }}
+        <div class="row">
+            <div class="col d-flex justify-content-center dashboard-item3 dashboard-general">
+                <p class="lead" style="position: relative; top: 7px;">{{ value3.goal.name }}</p>
+            </div>
+        </div>
+        <div class="row mb-3 mt-2 dashboard-item3 dashboard-general">
+            {{ milestones.render_milestones(value3)}}
+            <div class="col-lg d-flex justify-content-center" style="position: relative; top: 30px;">
+                {{ render_value.render_value(value3.value) }}
+            </div>
         </div>
     </div>
 {% endblock %}

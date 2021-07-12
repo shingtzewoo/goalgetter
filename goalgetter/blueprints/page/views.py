@@ -3,6 +3,7 @@ from flask_login import login_required, current_user
 from datetime import *
 from dateutil.relativedelta import *
 from goalgetter.blueprints.goals.models.milestones import Milestone
+from goalgetter.blueprints.user.decorators import anonymous_required
 from lib.route_logic import questionnaire_reroute 
 
 page = Blueprint('page', __name__, template_folder='templates')
@@ -11,7 +12,7 @@ page = Blueprint('page', __name__, template_folder='templates')
 @questionnaire_reroute
 @login_required
 def home():
-    if request.method == "POST":
+    if request.method == 'POST':
         req = request.get_json()
         res = make_response(jsonify(req), 200)
         return res
@@ -32,6 +33,9 @@ def goals():
 def journal():
     return render_template('journal.html')
 
-@page.route('/')
+@page.route('/', methods=['GET', 'POST'])
+@anonymous_required
 def landing():
+    if request.method == 'POST':
+        return redirect(url_for('user.signup'))
     return render_template('landingpage.html')

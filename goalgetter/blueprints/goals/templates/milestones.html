@@ -14,18 +14,27 @@
         <img src="{{ url_for('static', filename='images/flag.png') }}" class="img-fluid mx-auto" alt="icon made https://www.flaticon.com/authors/flat-icons Pixel perfect" style="max-width: 20%; max-height: 20%">
     </div>
 </section>
-<section class="row mb-5">
+<section class="row mb-5" style="background-color: #ffe8d6; height: auto;">
     <div class="col d-flex flex-column justify-content-center" data-aos="fade-in" data-aos-once="true" data-aos-easing="ease-in" data-aos-duration="600">
-        <h1 class="text-center">Annual goals can be overwhelming</h1>
-        <p class="text-center lead">
-            We're going to break them down into manageable and achievable chunks called milestones
-            <br>
-            Each milestone is aimed to be achieved at the end of 4 months, so in a year you should have 3 milestones
-        </p>
+        <div class="row">
+            <div class="col d-flex justify-content-center" style="height: 300px;">
+                <img src="{{ url_for('static', filename='images/pixeltrue-idea-1.png') }}" alt=" Illustration by https://icons8.com/illustrations/author/5ec7b0e101d0360016f3d1b3 Pixeltrue from https://icons8.com/illustrations Ouch!" class="img-fluid mx-auto"  style="position: relative; top: 10px; max-width: 100%; max-height: 100%">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h1 class="text-center">Annual goals can be overwhelming</h1>
+                <p class="text-center lead">
+                We're going to break them down into manageable and achievable chunks called milestones
+                <br>
+                Each milestone is aimed to be achieved at the end of 4 months, so in a year you should have 3 milestones
+                </p>
+            </div>
+        </div>
     </div>
 </section>
-<section class="row d-flex"">
-    <div class="container">
+<section class="row d-flex">
+    <div class="col">
         <form method="POST" action="{{ url_for('goals.milestones')}}">
             {{ render.render_milestones_questionnaire(goal1) }}
             {{ render.render_milestones_questionnaire(goal2) }}
