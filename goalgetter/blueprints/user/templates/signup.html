@@ -6,6 +6,12 @@
 {% block body %}
 <section class="row mt-5">
     <div class="col d-flex flex-column justify-content-center align-items-center">
+        <div class="row mb-5">
+            <div class="col">
+                <h2 class="text-center">Join Goalgetter</h2>
+                <p class="text-center">Discover yourself and achieve goals</p>
+            </div>
+        </div>
         <div class="row">
             <div class="col d-flex">
                 <form method="POST" action="{{ url_for('user.signup')}}">
@@ -32,6 +38,11 @@
             <div class="col d-flex">
                 <img src="{{ url_for('static', filename='images/pixeltrue-welcome-1.png') }}" alt=" Illustration by https://icons8.com/illustrations/author/5ec7b0e101d0360016f3d1b3 Pixeltrue from https://icons8.com/illustrations Ouch!" class="img-fluid mx-auto" style="position: relative; top: 10px; max-width: 70%; max-height: 70%">
             </div>
+        </div>
+        <div class="row">
+            <form method="GET" action="{{ url_for('user.login')}}">
+                <p>Already have an account? <button type="submit" style="height: 50px" class="btn btn-light mx-auto">Sign In</button> </p>
+            </form>
         </div>
     </div>
 </section>
