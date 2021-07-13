@@ -1,8 +1,8 @@
 from flask import Blueprint, render_template, url_for, flash, current_app, request, redirect
 from werkzeug.security import generate_password_hash
-from flask_login import login_required, login_user, logout_user
+from flask_login import login_required, login_user, logout_user, current_user
 from goalgetter.blueprints.user.decorators import anonymous_required
-from goalgetter.blueprints.user.forms import LoginForm, SignupForm
+from goalgetter.blueprints.user.forms import LoginForm, SignupForm, PasswordChange, NameChange
 from goalgetter.blueprints.user.models import User
 
 user = Blueprint('user', __name__, template_folder='templates')
@@ -61,8 +61,31 @@ def signup():
 
     return render_template('signup.html', form=form)
 
-@user.route('/account')
+@user.route('/settings', methods=['GET', 'POST'])
 @login_required
-def account():
-    # to do
-    return render_template('signup.html')
+def settings():
+    passwordform, nameform = PasswordChange(), NameChange()
+
+    if passwordform.validate_on_submit():
+        new_password = request.form.get('password')
+
+        if new_password:
+            current_user.password = generate_password_hash(new_password)
+
+        current_user.save()
+
+        flash('Your password has been updated.', 'success')
+        return redirect(url_for('user.settings'))
+    
+    if nameform.validate_on_submit():
+        new_name = request.form.get('name')
+
+        if new_name:
+            current_user.name = new_name
+        
+        current_user.save()
+
+        flash('Your name has been changed.', 'success')
+        return redirect(url_for('user.settings'))
+
+    return render_template('settings.html', passwordform=passwordform, nameform=nameform)

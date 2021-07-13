@@ -12,3 +12,9 @@ class SignupForm(FlaskForm):
     name = StringField('Name', [DataRequired(), Length(3, 254)])
     email = EmailField('Email Address', [DataRequired(), Length(3, 254)])
     password = PasswordField('Password', [DataRequired(), Length(3, 254)])
+
+class PasswordChange(FlaskForm):
+    password = PasswordField('Password', [DataRequired(), Length(3, 254)])
+
+class NameChange(FlaskForm):
+    name = StringField('Name', [DataRequired(), Length(3, 254)])

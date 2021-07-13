@@ -6,12 +6,13 @@
 {% block body %}
 <section class="row mt-5">
     <div class="col d-flex flex-column justify-content-center align-items-center">
-        <div class="row mb-5">
+        <div class="row">
             <div class="col">
                 <h2 class="text-center">Join Goalgetter</h2>
                 <p class="text-center">Discover yourself and achieve goals</p>
             </div>
         </div>
+        <div class="row" style="height: 15px;"></div>
         <div class="row">
             <div class="col d-flex">
                 <form method="POST" action="{{ url_for('user.signup')}}">
@@ -30,7 +31,11 @@
                     <p>
                         {{ form.csrf_token }}
                     </p>
-                    <input type="submit" style="height: 50px" class="btn btn-primary" value="Signup">
+                    <div class="row">
+                        <div class="col d-flex justify-content-center">
+                            <input type="submit" style="height: 50px" class="btn btn-primary" value="Signup">
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
