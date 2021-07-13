@@ -4,19 +4,31 @@
 {% block meta_description %}Login page for goalgetter{% endblock %}
 
 {% block body %}
-<h2 class="display-5">Please Sign In</h2>
-    <form method="POST" action="{{ url_for('user.login')}}">
-        <p>
-            {{ form.email.label }}<br>
-            {{ form.email(size=32) }}
-        </p>
-        <p>
-            {{ form.password.label }}<br>
-            {{ form.password(size=32) }}
-        </p>
-        <p>
-            {{ form.csrf_token }}
-        </p>
-        <input type="submit" class="btn btn-primary" value="Login">
-    </form>
+<section class="row mt-5">
+        <div class="col d-flex flex-column justify-content-center align-items-center">
+            <div class="row">
+                <div class="col d-flex">
+                    <form method="POST" action="{{ url_for('user.login')}}">
+                        <p>
+                            {{ form.email.label }}<br>
+                            {{ form.email(size=32) }}
+                        </p>
+                        <p>
+                            {{ form.password.label }}<br>
+                            {{ form.password(size=32) }}
+                        </p>
+                        <p>
+                            {{ form.csrf_token }}
+                        </p>
+                        <input type="submit" class="btn btn-primary" value="Login">
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col d-flex">
+                    <img src="{{ url_for('static', filename='images/pixeltrue-welcome-1.png') }}" alt=" Illustration by https://icons8.com/illustrations/author/5ec7b0e101d0360016f3d1b3 Pixeltrue from https://icons8.com/illustrations Ouch!" class="img-fluid mx-auto" style="position: relative; top: 10px; max-width: 70%; max-height: 70%">
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}

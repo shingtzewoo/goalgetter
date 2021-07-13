@@ -34,8 +34,11 @@ def journal():
     return render_template('journal.html')
 
 @page.route('/', methods=['GET', 'POST'])
-@anonymous_required
 def landing():
     if request.method == 'POST':
         return redirect(url_for('user.signup'))
+    
+    if current_user.is_authenticated:
+        return redirect(url_for('page.home'))
+    
     return render_template('landingpage.html')

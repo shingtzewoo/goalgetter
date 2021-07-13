@@ -6,44 +6,52 @@
 {% block body %}
 <section class="row mt-5" style="height: auto;">
     <div class="col d-flex flex-column">
-        <h2 class="mx-auto text-center">Make your annual goals
+        <h1 class="mx-auto text-center">Make your annual goals
             <br> more systematic and achievable
-        </h2>
+        </h1>
     <div class="row">
         <div class="col d-flex">
-            <img src="{{ url_for('static', filename='images/pixeltrue-vision-1.png') }}" alt=" Illustration by https://icons8.com/illustrations/author/5ec7b0e101d0360016f3d1b3 Pixeltrue from https://icons8.com/illustrations Ouch!" class="img-fluid mx-auto" style="position: relative; top: 10px; max-width: 70%; max-height: 70%">
+            <img src="{{ url_for('static', filename='images/pixeltrue-vision-1.png') }}" alt=" Illustration by https://icons8.com/illustrations/author/5ec7b0e101d0360016f3d1b3 Pixeltrue from https://icons8.com/illustrations Ouch!" class="img-fluid mx-auto" style="position: relative; top: 10px; max-width: 75%; max-height: 75%">
         </div>
     </div>
     </div>
 </section>
-<section class="row mb-5" style="background-color: #ffe8d6;" style="height: auto;">
-    <div class="col d-flex flex-column justify-content-center">
-        <h2 class="text-center" style="position: relative; top: 10px;">Discover your core values</h2>
-        <p class="lead text-center" style="position: relative; top: 10px;">
-            Gain confidence by
-            <br> understanding more about yourself
-        </p>
-    </div>
-    <div class="row">
-        <div class="col d-flex">
-            <img src="{{ url_for('static', filename='images/pixeltrue-space-discovery-1.png') }}" alt=" Illustration by https://icons8.com/illustrations/author/5ec7b0e101d0360016f3d1b3 Pixeltrue from https://icons8.com/illustrations Ouch!" class="img-fluid mx-auto"  style="position: relative; top: 10px; max-width: 70%; max-height: 70%">
+<section class="row mb-5" style="background-color: #ffe8d6; height: auto;">
+    <div class="container flex-column justify-content-center align-items-center">
+        <div class="row" style="position: relative; top: 10px;">
+            <div class="col">
+                <h1 class="text-center">Discover your core values</h1>
+                <p class="lead text-center">
+                    Gain confidence by
+                    <br> understanding more about yourself
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col d-flex">
+                <img src="{{ url_for('static', filename='images/pixeltrue-space-discovery-1.png') }}" alt=" Illustration by https://icons8.com/illustrations/author/5ec7b0e101d0360016f3d1b3 Pixeltrue from https://icons8.com/illustrations Ouch!" class="img-fluid mx-auto"  style="max-width: 80%; max-height: 80%">
+            </div>
         </div>
     </div>
 </section>
 <section class="row" style="height: auto;">
     <div class="col d-flex flex-column justify-content-center">
-        <h2 class="text-center">Process matters</h2>
-        <p class="lead text-center">Refine your proces
-            <br> achieve your goals
-        </p>
-    </div>
-    <div class="row">
-        <div class="col d-flex">
-            <img src="{{ url_for('static', filename='images/pixeltrue-plan-1.png') }}" alt=" Illustration by https://icons8.com/illustrations/author/5ec7b0e101d0360016f3d1b3 Pixeltrue from https://icons8.com/illustrations Ouch!" class="img-fluid mx-auto" style="position: relative; top: 10px; max-width: 70%; max-height: 70%">
+        <div class="row">
+            <div class="col">
+                <h1 class="text-center">Process matters</h1>
+                <p class="lead text-center">Refine your proces
+                    <br> achieve your goals
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col d-flex">
+                <img src="{{ url_for('static', filename='images/pixeltrue-plan-1.png') }}" alt=" Illustration by https://icons8.com/illustrations/author/5ec7b0e101d0360016f3d1b3 Pixeltrue from https://icons8.com/illustrations Ouch!" class="img-fluid mx-auto" style="max-width: 70%; max-height: 70%">
+            </div>
         </div>
     </div>
 </section>
-<section class="row mb-3 d-flex justify-content-center" style="height: auto;">
+<section class="row mb-5 d-flex justify-content-center" style="height: auto;">
     <form method="POST" action="{{ url_for('user.signup')}}">
         <button type="submit" style="height: 50px" class="btn btn-light mx-auto">Get Started</button>
     </form>

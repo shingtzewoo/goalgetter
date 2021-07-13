@@ -47,24 +47,3 @@ button:focus {
 body {
     font-family: Verdana, sans-serif;
 }
-
-/* Code from: https://www.shapedivider.app/ */
-.custom-shape-divider-top-1625326335 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-}
-
-.custom-shape-divider-top-1625326335 svg {
-    position: relative;
-    display: block;
-    width: calc(155% + 1.3px);
-    height: 101px;
-}
-
-.custom-shape-divider-top-1625326335 .shape-fill {
-    fill: #FFFFFF;
-}
