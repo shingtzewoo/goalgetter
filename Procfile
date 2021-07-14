@@ -1,1 +1,1 @@
-web: gunicorn goalgetter:app
+web: gunicorn goalgetter.app:app
