@@ -1,1 +1,1 @@
-web: gunicorn goalgetter.app:app
+web: gunicorn goalgetter.app:create_app()
