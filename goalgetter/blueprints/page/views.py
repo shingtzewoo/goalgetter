@@ -33,12 +33,12 @@ def goals():
 def journal():
     return render_template('journal.html')
 
-@page.route('/', methods=['GET', 'POST'])
-def landing():
+@page.route('/index', methods=['GET', 'POST'])
+def index():
     if request.method == 'POST':
         return redirect(url_for('user.signup'))
     
     if current_user.is_authenticated:
         return redirect(url_for('page.home'))
     
-    return render_template('landingpage.html')
+    return render_template('index.html')
