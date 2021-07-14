@@ -58,3 +58,8 @@ def authentication(app, user_model):
     def load_user(user_id):
         return user_model.query.get(user_id)   
     
+# Create an app context for the database connection
+app = create_app()
+app.app_context().push()
+with app.app_context():
+        db.create_all()
