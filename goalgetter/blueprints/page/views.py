@@ -33,8 +33,7 @@ def goals():
 def journal():
     return render_template('journal.html')
 
-@page.route('/', defaults={'path': ''}, methods=['GET', 'POST'])
-@page.route('/<path:path>')
+@page.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
         return redirect(url_for('user.signup'))
