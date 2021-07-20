@@ -24,6 +24,9 @@ your current milestones, an inspirational quote, and your values.
 
 ![Image of dashboard](screenshots/dashboard_screenshot.PNG)
 
+* You can view your goals and milestones in the _Goals_ page.
+* You can change your name and password for your account in the _Settings_ page.
+
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
@@ -39,6 +42,9 @@ Project Link: [https://github.com/shingtzewoo/goalgetter](https://github.com/shi
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 
-* [Animate CSS](https://animate.style/) -> For the animation which made the questionnaire page look more professional
-* [Nick Janetakis](https://buildasaasappwithflask.com/) -> For providing an excellent course which helped build a solid docker and flask foundation for me
+* [Animate CSS](https://animate.style/) -> For animation
+* [Nick Janetakis](https://buildasaasappwithflask.com/) -> For Docker and Flask knowledge
 * [They Said So Quotes](https://quotes.rest/) -> For free API to produce quotes for dashboard
+* [FLat Icon](https://www.flaticon.com/) -> For platform to download icons
+* [Icons 8](https://icons8.com/) -> For platform to download illustrations
+* [Pixeltrue](https://www.pixeltrue.com/) -> For creating the main illustrations
