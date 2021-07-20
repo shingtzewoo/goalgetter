@@ -41,3 +41,4 @@ Project Link: [https://github.com/shingtzewoo/goalgetter](https://github.com/shi
 
 * [Animate CSS](https://animate.style/) -> For the animation which made the questionnaire page look more professional
 * [Nick Janetakis](https://buildasaasappwithflask.com/) -> For providing an excellent course which helped build a solid docker and flask foundation for me
+* [They Said So Quotes](https://quotes.rest/) -> For free API to produce quotes for dashboard
