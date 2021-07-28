@@ -12,6 +12,7 @@ what truly matters to you. This is called [value based goal setting](https://www
 ### Built With
 
 * [Flask](https://flask.palletsprojects.com/en/2.0.x/)
+* [Docker](https://www.docker.com/)
 * [Bootstrap](https://getbootstrap.com/)
 * [Postgresql](https://www.postgresql.org/)
 
